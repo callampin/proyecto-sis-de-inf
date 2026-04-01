@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-tertiary: #1a1a24;
+      --accent: #00ff88;
+      --accent-dim: #00cc6a;
+      --accent-glow: rgba(0, 255, 136, 0.3);
+      --border: #1e1e2e;
+      --border-light: #2a2a3a;
+      --text-primary: #e8e8e8;
+      --text-secondary: #6b6b80;
+      --text-muted: #4a4a5a;
+      --transition-fast: 150ms ease;
+      --transition-normal: 300ms ease;
+      --transition-slow: 500ms ease;
+    }
+
+    html, body {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    /* ===== LAYOUT ===== */
+    .presentation {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* ===== SIDEBAR ÍNDICE ===== */
+    .sidebar-index {
+      position: fixed;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      background: rgba(18, 18, 26, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 16px;
+      z-index: 100;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .index-category {
+      margin-bottom: 16px;
+    }
+
+    .index-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .category-name {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+
+    .category-dots {
+      display: flex;
+      gap: 8px;
+      padding-left: 4px;
+    }
+
+    .category-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+    }
+
+    .category-dot:hover {
+      border-color: var(--text-secondary);
+      transform: scale(1.1);
+    }
+
+    .category-dot.active {
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow);
+      animation: dot-pulse 2s ease-in-out infinite;
+    }
+
+    .category-dot.completed {
+      border-color: var(--text-primary);
+      background: var(--text-primary);
+    }
+
+    @keyframes dot-pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 8px var(--accent-glow);
+      }
+      50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 16px var(--accent-glow);
+      }
+    }
+
+    .category-separator {
+      height: 1px;
+      background: var(--border);
+      margin: 12px 0;
+    }
+
+    /* ===== SLIDES CONTAINER ===== */
+    .slides-wrapper {
+      flex: 1;
+      margin-left: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slides-track {
+      display: flex;
+      height: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      padding: 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .slide-content-wrapper {
+      max-width: 1000px;
+    }
+
+    .slide-header {
+      margin-bottom: 40px;
+    }
+
+    .slide-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .slide-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .slide-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .slide-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      max-width: 900px;
+    }
+
+    .content-block {
+      margin-bottom: 28px;
+    }
+
+    .content-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .content-text strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .highlight-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 24px 28px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .info-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: 10px;
+      transition: all var(--transition-normal);
+    }
+
+    .info-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+
+    .info-card-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .info-card-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* ===== SLIDE NAVIGATION (bottom right) ===== */
+    .slide-nav {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .slide-nav-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(18, 18, 26, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+    }
+
+    .slide-nav-btn:hover {
+      background: var(--bg-tertiary);
+      border-color: var(--accent);
+    }
+
+    .slide-nav-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--text-secondary);
+      transition: stroke var(--transition-fast);
+    }
+
+    .slide-nav-btn:hover svg {
+      stroke: var(--accent);
+    }
+
+    .slide-counter {
+      position: fixed;
+      left: 24px;
+      bottom: 24px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      z-index: 100;
+    }
+
+    .slide-counter span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ===== SLIDE-SPECIFIC STYLES ===== */
+    .slide--hero {
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      text-align: center;
+      align-items: center;
+    }
+
+    .slide--hero .slide-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slide--hero .slide-content {
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 550px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ===== BACKGROUND EFFECTS ===== */
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: radial-gradient(ellipse at top right, rgba(0, 255, 136, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ===== FINAL SLIDE ===== */
+    .slide--final {
+      text-align: center;
+      align-items: center;
+      background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    .slide--final .slide-content {
+      align-items: center;
+    }
+
+    .final-message {
+      font-family: 'Outfit', sans-serif;
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .final-sub {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .contact-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--accent);
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .sidebar-index {
+        left: 16px;
+        width: 180px;
+        padding: 16px 12px;
+      }
+      .slides-wrapper {
+        margin-left: 240px;
+      }
+      .slide-counter {
+        left: 16px;
+      }
+      .hero-title {
+        font-size: 42px;
+      }
+      .slide-title {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar-index {
+        display: none;
+      }
+      .slides-wrapper {
+        margin-left: 0;
+      }
+      .slide {
+        padding: 40px 24px;
+      }
+      .hero-title {
+        font-size: 36px;
+      }
+      .slide-title {
+        font-size: 28px;
+      }
+      .slide-nav {
+        bottom: 24px;
+        right: 24px;
+      }
+      .slide-counter {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
+      }
+    }
+      .slides-wrapper {
+        margin-left: 192px;
+      }
+      .arrow-nav--left {
+        left: 192px;
+      }
+      .hero-title {
+        font-size: 42px;
+      }
+      .slide-title {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar-index {
+        display: none;
+      }
+      .slides-wrapper {
+        margin-left: 0;
+      }
+      .arrow-nav--left {
+        left: 16px;
+      }
+      .arrow-nav--right {
+        right: 16px;
+      }
+      .slide {
+        padding: 40px 24px;
+      }
+      .hero-title {
+        font-size: 32px;
+      }
+      .slide-title {
+        font-size: 28px;
+      }
+      .slide-nav {
+        bottom: 24px;
+        right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="presentation">
+    <!-- SIDEBAR ÍNDICE -->
+    <nav class="sidebar-index" id="sidebarIndex">
+      <!-- Generado por JS -->
+    </nav>
+
+    <!-- SLIDES -->
+    <div class="slides-wrapper">
+      <div class="slides-track" id="slidesTrack">
+
+        <!-- SLIDE 0: PROYECTO -->
+        <section class="slide slide--hero active" data-section="0" data-slide="0">
+          <div class="slide-content-wrapper">
+            <div class="hero-badge">En desarrollo</div>
+            <h1 class="hero-title">Nombre del Proyecto</h1>
+            <p class="hero-subtitle">Breve descripción o tagline del proyecto que captura la esencia de lo que se presenta.</p>
+          </div>
+        </section>
+
+        <!-- SLIDE 1: INTRODUCCIÓN -->
+        <section class="slide" data-section="1" data-slide="1">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">01</div>
+              <h2 class="slide-title">Introducción</h2>
+              <p class="slide-subtitle">Contexto general del proyecto y su relevancia en el mercado actual.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">
+                  La <strong>transformación digital</strong> se ha convertido en un pilar fundamental para las empresas que buscan mantenerse competitivas en un mercado en constante evolución. Este proyecto surge como respuesta a la necesidad de optimizar procesos y mejorar la experiencia tanto para los clientes como para el equipo interno.
+                </p>
+              </div>
+              <div class="highlight-box">
+                <p>Este documento presenta de manera estructurada los antecedentes, objetivos y procesos relacionados con el proyecto, proporcionando una visión completa de la propuesta y su viabilidad.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 2: ANTECEDENTES - Nombre PYME -->
+        <section class="slide" data-section="2" data-slide="2">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">02 — 1/8</div>
+              <h2 class="slide-title">Nombre de la PYME</h2>
+              <p class="slide-subtitle">Identificación formal de la empresa.</p>
+            </div>
+            <div class="slide-content">
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">Razón Social</div>
+                  <div class="info-card-value">Nombre Legal Completo SPA</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Nombre Comercial</div>
+                  <div class="info-card-value">Nombre de Marca</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">RUT</div>
+                  <div class="info-card-value">XX.XXX.XXX-X</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Tipo de Empresa</div>
+                  <div class="info-card-value">Pequeña Empresa</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 3: ANTECEDENTES - Dirección -->
+        <section class="slide" data-section="2" data-slide="3">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">02 — 2/8</div>
+              <h2 class="slide-title">Dirección</h2>
+              <p class="slide-subtitle">Ubicación geográfica de la empresa.</p>
+            </div>
+            <div class="slide-content">
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">Dirección</div>
+                  <div class="info-card-value">Calle Principal #123</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Comuna</div>
+                  <div class="info-card-value">Nombre Comuna</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Ciudad</div>
+                  <div class="info-card-value">Ciudad</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Región</div>
+                  <div class="info-card-value">Región</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: ANTECEDENTES - Rubro -->
+        <section class="slide" data-section="2" data-slide="4">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">02 — 3/8</div>
+              <h2 class="slide-title">Rubro</h2>
+              <p class="slide-subtitle">Sector industrial y área de especialización.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">
+                  La empresa se encuentra en el sector de <strong>servicios profesionales</strong>, específicamente en el área de consultoría y desarrollo de soluciones tecnológicas a medida para pequeñas y medianas empresas.
+                </p>
+              </div>
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">Sector</div>
+                  <div class="info-card-value">Servicios</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Subsector</div>
+                  <div class="info-card-value">Consultoría TI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 5: ANTECEDENTES - Producto y/o Servicio -->
+        <section class="slide" data-section="2" data-slide="5">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">02 — 4/8</div>
+              <h2 class="slide-title">Producto y/o Servicio</h2>
+              <p class="slide-subtitle">Oferta principal de la empresa.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">
+                  La empresa ofrece <strong>desarrollo de software personalizado</strong>, incluyendo aplicaciones web, móviles y sistemas de gestión empresarial. Complementariamente, provee servicios de asesoría tecnológica y soporte técnico especializado.
+                </p>
+              </div>
+              <div class="highlight-box">
+                <p>Propuesta de valor: Soluciones tecnológicas flexibles y escalables adaptadas a las necesidades específicas de cada cliente, con foco en la productividad y eficiencia operativa.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 6: ANTECEDENTES - Historia -->
+        <section class="slide" data-section="2" data-slide="6">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">02 — 5/8</div>
+              <h2 class="slide-title">Historia</h2>
+              <p class="slide-subtitle">Origen y evolución de la empresa.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">
+                  La empresa fue fundada en <strong>año</strong> con el objetivo de democratizar el acceso a soluciones tecnológicas de calidad para el segmento PYME. Desde sus inicios, ha mantenido un crecimiento sostenido gracias a la confianza de sus clientes y la dedicación de su equipo.
+                </p>
+              </div>
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">Año de Fundación</div>
+                  <div class="info-card-value">2020</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Colaboradores</div>
+                  <div class="info-card-value">5-10</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Proyectos Realizados</div>
+                  <div class="info-card-value">50+</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Clientes Activos</div>
+                  <div class="info-card-value">30+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 7: ANTECEDENTES - Dueño -->
+        <section class="slide" data-section="2" data-slide="7">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">02 — 6/8</div>
+              <h2 class="slide-title">Dueño</h2>
+              <p class="slide-subtitle">Perfil del fundador y líder del proyecto.</p>
+            </div>
+            <div class="slide-content">
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">Nombre</div>
+                  <div class="info-card-value">Nombre del Fundador</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Rol</div>
+                  <div class="info-card-value">Gerente General</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Experiencia</div>
+                  <div class="info-card-value">+10 años en TI</div>
+                </div>
+              </div>
+              <div class="highlight-box">
+                <p>Visión: Transformar la manera en que las empresas locales acceden y aprovechan la tecnología para competir en un mercado cada vez más digitalizado.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 8: ANTECEDENTES - Características -->
+        <section class="slide" data-section="2" data-slide="8">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">02 — 7/8</div>
+              <h2 class="slide-title">Características</h2>
+              <p class="slide-subtitle">Diferenciadores y fortalezas de la empresa.</p>
+            </div>
+            <div class="slide-content">
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">Enfoque</div>
+                  <div class="info-card-value">Atención Personalizada</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Metodología</div>
+                  <div class="info-card-value">Agile / Scrum</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Tecnología</div>
+                  <div class="info-card-value">Stack Moderno</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Soporte</div>
+                  <div class="info-card-value">24/7 Disponible</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 9: ANTECEDENTES - Competencia -->
+        <section class="slide" data-section="2" data-slide="9">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">02 — 8/8</div>
+              <h2 class="slide-title">Competencia</h2>
+              <p class="slide-subtitle">Análisis del entorno competitivo.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">
+                  El mercado local cuenta con varios actores establecidos, sin embargo, la empresa se diferencia por su <strong>enfoque integral</strong>, combinando desarrollo técnico con asesoría estratégica de negocio.
+                </p>
+              </div>
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">Fortalezas</div>
+                  <div class="info-card-value">Agilidad y Flexibilidad</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Oportunidades</div>
+                  <div class="info-card-value">Mercado en Crecimiento</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 10: OBJETIVO DEL PROYECTO -->
+        <section class="slide" data-section="3" data-slide="10">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">03</div>
+              <h2 class="slide-title">Objetivo del Proyecto</h2>
+              <p class="slide-subtitle">Metas y resultados esperados.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">
+                  <strong>Objetivo General:</strong> Desarrollar e implementar un sistema integral de gestión que permita optimizar los procesos operativos de la empresa, mejorando la eficiencia y la experiencia del cliente.
+                </p>
+              </div>
+              <div class="highlight-box">
+                <p><strong>Objetivos Específicos:</strong></p>
+                <p style="margin-top: 12px;">• Automatizar procesos de gestión de clientes<br>
+                • Reducir tiempos de respuesta en atención<br>
+                • Mejorar la trazabilidad de proyectos<br>
+                • Generar reportes en tiempo real</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 11: PROCESOS -->
+        <section class="slide" data-section="4" data-slide="11">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">04</div>
+              <h2 class="slide-title">Procesos</h2>
+              <p class="slide-subtitle">Flujo de trabajo y operaciones.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">
+                  El proyecto se estructura en <strong>4 fases principales</strong> que permiten una implementación gradual y controlada, minimizando riesgos y permitiendo ajustes oportunos.
+                </p>
+              </div>
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">Fase 1</div>
+                  <div class="info-card-value">Diagnóstico y Planificación</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Fase 2</div>
+                  <div class="info-card-value">Diseño y Arquitectura</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Fase 3</div>
+                  <div class="info-card-value">Desarrollo e Integración</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">Fase 4</div>
+                  <div class="info-card-value">Pruebas y Lanzamiento</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 12: PROBLEMA A RESOLVER -->
+        <section class="slide" data-section="5" data-slide="12">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">05</div>
+              <h2 class="slide-title">Problema a Resolver</h2>
+              <p class="slide-subtitle">Desafío identificado y justificación del proyecto.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">
+                  La empresa actualmente gestiona sus operaciones utilizando <strong>herramientas dispersas y manuales</strong>, lo que genera redundancia de datos, falta de trazabilidad y consumo excesivo de tiempo en tareas administrativas.
+                </p>
+              </div>
+              <div class="highlight-box">
+                <p><strong>Impacto:</strong></p>
+                <p style="margin-top: 12px;">• Pérdida de productividad: ~15 horas semanales<br>
+                • Errores en gestión de datos: 12% de margen de error<br>
+                • Satisfacción del cliente: 70% de rating promedio<br>
+                • Tiempo de respuesta promedio: 48 horas</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 13: DESPEDIDA -->
+        <section class="slide slide--final" data-section="6" data-slide="13">
+          <div class="slide-content-wrapper">
+            <h2 class="final-message">¡Gracias!</h2>
+            <p class="final-sub">Quedamos atentos a sus consultas y comentarios. Estamos disponibles para profundizar en cualquier aspecto de esta propuesta.</p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                contacto@email.com
+              </div>
+              <div class="contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +56 9 XXXX XXXX
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+  </div>
+
+  <!-- SLIDE NAVIGATION (bottom right) -->
+    <div class="slide-nav">
+      <button class="slide-nav-btn" id="navPrev">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="slide-nav-btn" id="navNext">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- SLIDE COUNTER -->
+    <div class="slide-counter">
+      <span id="currentSlideNum">1</span> / <span id="totalSlides">14</span>
+    </div>
+  </div>
+
+  <script>
+    const slideData = [
+      { sectionId: 0, title: 'Proyecto', slides: [{ id: 0, title: 'Proyecto' }] },
+      { sectionId: 1, title: 'Introducción', slides: [{ id: 1, title: 'Introducción' }] },
+      { sectionId: 2, title: 'Antecedentes', slides: [
+        { id: 2, title: 'Nombre de la PYME' },
+        { id: 3, title: 'Dirección' },
+        { id: 4, title: 'Rubro' },
+        { id: 5, title: 'Producto y/o Servicio' },
+        { id: 6, title: 'Historia' },
+        { id: 7, title: 'Dueño' },
+        { id: 8, title: 'Características' },
+        { id: 9, title: 'Competencia' }
+      ]},
+      { sectionId: 3, title: 'Objetivo del Proyecto', slides: [{ id: 10, title: 'Objetivo del Proyecto' }] },
+      { sectionId: 4, title: 'Procesos', slides: [{ id: 11, title: 'Procesos' }] },
+      { sectionId: 5, title: 'Problema a Resolver', slides: [{ id: 12, title: 'Problema a Resolver' }] },
+      { sectionId: 6, title: 'Despedida', slides: [{ id: 13, title: 'Despedida' }] }
+    ];
+
+    let currentSlideIndex = 0;
+    const totalSlides = 14;
+    const slides = document.querySelectorAll('.slide');
+    const slidesTrack = document.getElementById('slidesTrack');
+
+    function init() {
+      renderSidebarIndex();
+      updateNavigation();
+      setupKeyboardNav();
+      setupScrollSnap();
+    }
+
+    function renderSidebarIndex() {
+      const container = document.getElementById('sidebarIndex');
+      container.innerHTML = '';
+
+      slideData.forEach((category, catIndex) => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'index-category';
+
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'category-name';
+        nameDiv.textContent = category.title;
+
+        const dotsDiv = document.createElement('div');
+        dotsDiv.className = 'category-dots';
+
+        category.slides.forEach((slide, slideIndex) => {
+          const dot = document.createElement('div');
+          dot.className = 'category-dot';
+          dot.dataset.slideId = slide.id;
+          dot.title = slide.title;
+
+          if (slide.id === 0) dot.classList.add('active');
+
+          dot.addEventListener('click', () => goToSlide(slide.id));
+          dotsDiv.appendChild(dot);
+        });
+
+        categoryDiv.appendChild(nameDiv);
+        categoryDiv.appendChild(dotsDiv);
+        container.appendChild(categoryDiv);
+
+        if (catIndex < slideData.length - 1) {
+          const separator = document.createElement('div');
+          separator.className = 'category-separator';
+          container.appendChild(separator);
+        }
+      });
+    }
+
+    function goToSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+      currentSlideIndex = index;
+      updateNavigation();
+    }
+
+    function nextSlide() {
+      if (currentSlideIndex < totalSlides - 1) {
+        currentSlideIndex++;
+        updateNavigation();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlideIndex > 0) {
+        currentSlideIndex--;
+        updateNavigation();
+      }
+    }
+
+    function updateNavigation() {
+      slidesTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlideIndex) {
+          slide.classList.add('active');
+        }
+      });
+
+      document.querySelectorAll('.category-dot').forEach(dot => {
+        dot.classList.remove('active', 'completed');
+        const slideId = parseInt(dot.dataset.slideId);
+        if (slideId === currentSlideIndex) {
+          dot.classList.add('active');
+        } else if (slideId < currentSlideIndex) {
+          dot.classList.add('completed');
+        }
+      });
+
+      document.getElementById('currentSlideNum').textContent = currentSlideIndex + 1;
+    }
+
+    function setupKeyboardNav() {
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevSlide();
+        }
+      });
+
+      document.getElementById('navPrev').addEventListener('click', prevSlide);
+      document.getElementById('navNext').addEventListener('click', nextSlide);
+    }
+
+    function setupScrollSnap() {
+      let scrollTimeout;
+      const slidesWrapper = document.querySelector('.slides-wrapper');
+
+      slidesWrapper.addEventListener('wheel', (e) => {
+        e.preventDefault();
+
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          if (e.deltaY > 0 || e.deltaX > 0) {
+            nextSlide();
+          } else if (e.deltaY < 0 || e.deltaX < 0) {
+            prevSlide();
+          }
+        }, 10);
+      }, { passive: false });
+
+      let touchStartX = 0;
+      slidesWrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+
+      slidesWrapper.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) nextSlide();
+          else prevSlide();
+        }
+      }, { passive: true });
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+
+</body>
+</html>
