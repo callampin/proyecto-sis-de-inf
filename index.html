@@ -478,45 +478,8 @@
       .slide-title {
         font-size: 34px;
       }
-    }
-
-    @media (max-width: 768px) {
-      .sidebar-index {
-        display: none;
-      }
-      .slides-wrapper {
-        margin-left: 0;
-      }
       .slide {
-        padding: 40px 24px;
-      }
-      .hero-title {
-        font-size: 36px;
-      }
-      .slide-title {
-        font-size: 28px;
-      }
-      .slide-nav {
-        bottom: 24px;
-        right: 24px;
-      }
-      .slide-counter {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 80px;
-      }
-    }
-      .slides-wrapper {
-        margin-left: 192px;
-      }
-      .arrow-nav--left {
-        left: 192px;
-      }
-      .hero-title {
-        font-size: 42px;
-      }
-      .slide-title {
-        font-size: 34px;
+        padding: 50px 40px;
       }
     }
 
@@ -526,12 +489,6 @@
       }
       .slides-wrapper {
         margin-left: 0;
-      }
-      .arrow-nav--left {
-        left: 16px;
-      }
-      .arrow-nav--right {
-        right: 16px;
       }
       .slide {
         padding: 40px 24px;
@@ -539,12 +496,130 @@
       .hero-title {
         font-size: 32px;
       }
+      .hero-subtitle {
+        font-size: 16px;
+      }
       .slide-title {
-        font-size: 28px;
+        font-size: 26px;
+      }
+      .slide-subtitle {
+        font-size: 16px;
       }
       .slide-nav {
-        bottom: 24px;
-        right: 24px;
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+      }
+      .slide-nav-btn {
+        width: 44px;
+        height: 44px;
+      }
+      .slide-counter {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
+        font-size: 11px;
+      }
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .info-card {
+        padding: 16px;
+      }
+      .info-card-value {
+        font-size: 16px;
+      }
+      .highlight-box {
+        padding: 16px 20px;
+        margin: 16px 0;
+      }
+      .highlight-box p {
+        font-size: 14px;
+      }
+      .content-block {
+        margin-bottom: 20px;
+      }
+      .slide-header {
+        margin-bottom: 28px;
+      }
+      .category-dot {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slide {
+        padding: 32px 20px;
+      }
+      .hero-title {
+        font-size: 26px;
+        margin-bottom: 16px;
+      }
+      .hero-subtitle {
+        font-size: 14px;
+        max-width: 100%;
+      }
+      .hero-badge {
+        font-size: 10px;
+        padding: 6px 12px;
+        margin-bottom: 20px;
+      }
+      .slide-title {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      .slide-subtitle {
+        font-size: 14px;
+      }
+      .slide-number {
+        font-size: 10px;
+      }
+      .slide-nav {
+        bottom: 16px;
+        right: 16px;
+      }
+      .slide-nav-btn {
+        width: 48px;
+        height: 48px;
+      }
+      .slide-nav-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+      .slide-counter {
+        bottom: 72px;
+      }
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      .info-card-label {
+        font-size: 9px;
+      }
+      .info-card-value {
+        font-size: 15px;
+      }
+      .content-text {
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .final-message {
+        font-size: 28px;
+      }
+      .final-sub {
+        font-size: 15px;
+      }
+      .contact-info {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 28px;
+      }
+      .slide--hero {
+        padding: 32px 20px;
+      }
+      .slide--final {
+        padding: 32px 20px;
       }
     }
   </style>
