@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presentación</title>
+  <title>Presentación — Sistema de Gestión Almacén Lukas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -21,6 +21,8 @@
       --accent: #00ff88;
       --accent-dim: #00cc6a;
       --accent-glow: rgba(0, 255, 136, 0.3);
+      --accent-red: #ff4466;
+      --accent-amber: #ffaa00;
       --border: #1e1e2e;
       --border-light: #2a2a3a;
       --text-primary: #e8e8e8;
@@ -86,6 +88,7 @@
     .category-dots {
       display: flex;
       gap: 8px;
+      flex-wrap: wrap;
       padding-left: 4px;
     }
 
@@ -117,14 +120,8 @@
     }
 
     @keyframes dot-pulse {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 8px var(--accent-glow);
-      }
-      50% {
-        transform: scale(1.2);
-        box-shadow: 0 0 16px var(--accent-glow);
-      }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 8px var(--accent-glow); }
+      50% { transform: scale(1.2); box-shadow: 0 0 16px var(--accent-glow); }
     }
 
     .category-separator {
@@ -144,6 +141,7 @@
     .slides-track {
       display: flex;
       height: 100%;
+      transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .slide {
@@ -154,6 +152,7 @@
       flex-direction: column;
       justify-content: center;
       position: relative;
+      overflow-y: auto;
     }
 
     .slide-content-wrapper {
@@ -233,6 +232,14 @@
       color: var(--text-secondary);
     }
 
+    .highlight-box.danger {
+      border-left-color: var(--accent-red);
+    }
+
+    .highlight-box.warning {
+      border-left-color: var(--accent-amber);
+    }
+
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -262,6 +269,9 @@
       margin-bottom: 6px;
     }
 
+    .info-card-label.red   { color: var(--accent-red); }
+    .info-card-label.amber { color: var(--accent-amber); }
+
     .info-card-value {
       font-family: 'Outfit', sans-serif;
       font-size: 18px;
@@ -269,7 +279,278 @@
       color: var(--text-primary);
     }
 
-    /* ===== SLIDE NAVIGATION (bottom right) ===== */
+    .info-card-value.small {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ===== PROCESS FLOW ===== */
+    .process-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 8px;
+    }
+
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+    }
+
+    .process-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 44px;
+      width: 2px;
+      height: calc(100% - 8px);
+      background: var(--border);
+    }
+
+    .process-step.highlight-step:not(:last-child)::after {
+      background: rgba(255, 68, 102, 0.3);
+    }
+
+    .step-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      z-index: 1;
+      margin-bottom: 16px;
+    }
+
+    .process-step.highlight-step .step-icon {
+      border-color: var(--accent-red);
+      background: rgba(255, 68, 102, 0.1);
+    }
+
+    .step-body {
+      padding-top: 8px;
+      padding-bottom: 16px;
+      flex: 1;
+    }
+
+    .step-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .process-step.highlight-step .step-title {
+      color: var(--accent-red);
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ===== PROBLEM CARDS ===== */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .problem-card {
+      background: rgba(255, 68, 102, 0.05);
+      border: 1px solid rgba(255, 68, 102, 0.2);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .problem-card-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .problem-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #ff6680;
+      margin-bottom: 6px;
+    }
+
+    .problem-card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ===== BEFORE/AFTER ===== */
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .comparison-col {
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .comparison-col.before {
+      background: rgba(255, 68, 102, 0.05);
+      border: 1px solid rgba(255, 68, 102, 0.2);
+    }
+
+    .comparison-col.after {
+      background: rgba(0, 255, 136, 0.05);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+    }
+
+    .comparison-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .comparison-col.before .comparison-label { color: var(--accent-red); }
+    .comparison-col.after  .comparison-label { color: var(--accent); }
+
+    .comparison-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .comparison-item:last-child { margin-bottom: 0; }
+
+    .comparison-item span:first-child { flex-shrink: 0; font-size: 14px; }
+
+    /* ===== ACTA SUMMARY ===== */
+    .acta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .acta-block {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    .acta-block-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .acta-item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .acta-item:last-child { margin-bottom: 0; }
+
+    .acta-item-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .acta-item-dot.red    { background: var(--accent-red); }
+    .acta-item-dot.amber  { background: var(--accent-amber); }
+
+    .acta-team-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .acta-team-row:last-child { margin-bottom: 0; }
+
+    .acta-team-name {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .acta-team-role {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .acta-team-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 100px;
+      background: rgba(0,255,136,0.1);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .acta-team-badge.jefe {
+      background: rgba(0,255,136,0.15);
+      border: 1px solid rgba(0,255,136,0.3);
+    }
+
+    .hito-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .hito-row:last-child { border-bottom: none; }
+
+    .hito-date {
+      color: var(--accent);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      min-width: 108px;
+      flex-shrink: 0;
+      font-size: 12px;
+    }
+
+    .hito-desc {
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* ===== SLIDE NAVIGATION ===== */
     .slide-nav {
       position: fixed;
       bottom: 40px;
@@ -305,9 +586,7 @@
       transition: stroke var(--transition-fast);
     }
 
-    .slide-nav-btn:hover svg {
-      stroke: var(--accent);
-    }
+    .slide-nav-btn:hover svg { stroke: var(--accent); }
 
     .slide-counter {
       position: fixed;
@@ -319,12 +598,9 @@
       z-index: 100;
     }
 
-    .slide-counter span {
-      color: var(--accent);
-      font-weight: 600;
-    }
+    .slide-counter span { color: var(--accent); font-weight: 600; }
 
-    /* ===== SLIDE-SPECIFIC STYLES ===== */
+    /* ===== SLIDE-SPECIFIC ===== */
     .slide--hero {
       background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
       text-align: center;
@@ -337,9 +613,7 @@
       align-items: center;
     }
 
-    .slide--hero .slide-content {
-      align-items: center;
-    }
+    .slide--hero .slide-content { align-items: center; }
 
     .hero-title {
       font-family: 'Outfit', sans-serif;
@@ -386,7 +660,6 @@
       50% { opacity: 0.3; }
     }
 
-    /* ===== BACKGROUND EFFECTS ===== */
     .slide::before {
       content: '';
       position: absolute;
@@ -398,16 +671,13 @@
       pointer-events: none;
     }
 
-    /* ===== FINAL SLIDE ===== */
     .slide--final {
       text-align: center;
       align-items: center;
       background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     }
 
-    .slide--final .slide-content {
-      align-items: center;
-    }
+    .slide--final .slide-content { align-items: center; }
 
     .final-message {
       font-family: 'Outfit', sans-serif;
@@ -445,182 +715,67 @@
       stroke: var(--accent);
     }
 
-    /* ===== SCROLLBAR ===== */
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--border);
-      border-radius: 2px;
-    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
-      .sidebar-index {
-        left: 16px;
-        width: 180px;
-        padding: 16px 12px;
-      }
-      .slides-wrapper {
-        margin-left: 240px;
-      }
-      .slide-counter {
-        left: 16px;
-      }
-      .hero-title {
-        font-size: 42px;
-      }
-      .slide-title {
-        font-size: 34px;
-      }
-      .slide {
-        padding: 50px 40px;
-      }
+      .sidebar-index { left: 16px; width: 180px; padding: 16px 12px; }
+      .slides-wrapper { margin-left: 240px; }
+      .slide-counter { left: 16px; }
+      .hero-title { font-size: 42px; }
+      .slide-title { font-size: 34px; }
+      .slide { padding: 50px 40px; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .comparison-row { grid-template-columns: 1fr; gap: 12px; }
+      .acta-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
-      .sidebar-index {
-        display: none;
-      }
-      .slides-wrapper {
-        margin-left: 0;
-      }
-      .slide {
-        padding: 40px 24px;
-      }
-      .hero-title {
-        font-size: 32px;
-      }
-      .hero-subtitle {
-        font-size: 16px;
-      }
-      .slide-title {
-        font-size: 26px;
-      }
-      .slide-subtitle {
-        font-size: 16px;
-      }
-      .slide-nav {
-        bottom: 20px;
-        right: 20px;
-        gap: 10px;
-      }
-      .slide-nav-btn {
-        width: 44px;
-        height: 44px;
-      }
-      .slide-counter {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 80px;
-        font-size: 11px;
-      }
-      .info-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-      .info-card {
-        padding: 16px;
-      }
-      .info-card-value {
-        font-size: 16px;
-      }
-      .highlight-box {
-        padding: 16px 20px;
-        margin: 16px 0;
-      }
-      .highlight-box p {
-        font-size: 14px;
-      }
-      .content-block {
-        margin-bottom: 20px;
-      }
-      .slide-header {
-        margin-bottom: 28px;
-      }
-      .category-dot {
-        width: 12px;
-        height: 12px;
-      }
+      .sidebar-index { display: none; }
+      .slides-wrapper { margin-left: 0; }
+      .slide { padding: 40px 24px; }
+      .hero-title { font-size: 32px; }
+      .hero-subtitle { font-size: 16px; }
+      .slide-title { font-size: 26px; }
+      .slide-subtitle { font-size: 16px; }
+      .slide-nav { bottom: 20px; right: 20px; gap: 10px; }
+      .slide-nav-btn { width: 44px; height: 44px; }
+      .slide-counter { left: 50%; transform: translateX(-50%); bottom: 80px; font-size: 11px; }
+      .info-grid { grid-template-columns: 1fr; gap: 12px; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .comparison-row { grid-template-columns: 1fr; }
+      .acta-grid { grid-template-columns: 1fr; }
+      .info-card { padding: 16px; }
+      .info-card-value { font-size: 16px; }
+      .highlight-box { padding: 16px 20px; margin: 16px 0; }
+      .highlight-box p { font-size: 14px; }
+      .content-block { margin-bottom: 20px; }
+      .slide-header { margin-bottom: 28px; }
     }
 
     @media (max-width: 480px) {
-      .slide {
-        padding: 32px 20px;
-      }
-      .hero-title {
-        font-size: 26px;
-        margin-bottom: 16px;
-      }
-      .hero-subtitle {
-        font-size: 14px;
-        max-width: 100%;
-      }
-      .hero-badge {
-        font-size: 10px;
-        padding: 6px 12px;
-        margin-bottom: 20px;
-      }
-      .slide-title {
-        font-size: 22px;
-        margin-bottom: 10px;
-      }
-      .slide-subtitle {
-        font-size: 14px;
-      }
-      .slide-number {
-        font-size: 10px;
-      }
-      .slide-nav {
-        bottom: 16px;
-        right: 16px;
-      }
-      .slide-nav-btn {
-        width: 48px;
-        height: 48px;
-      }
-      .slide-nav-btn svg {
-        width: 20px;
-        height: 20px;
-      }
-      .slide-counter {
-        bottom: 72px;
-      }
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-      .info-card-label {
-        font-size: 9px;
-      }
-      .info-card-value {
-        font-size: 15px;
-      }
-      .content-text {
-        font-size: 14px;
-        line-height: 1.7;
-      }
-      .final-message {
-        font-size: 28px;
-      }
-      .final-sub {
-        font-size: 15px;
-      }
-      .contact-info {
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 28px;
-      }
-      .slide--hero {
-        padding: 32px 20px;
-      }
-      .slide--final {
-        padding: 32px 20px;
-      }
+      .slide { padding: 32px 20px; }
+      .hero-title { font-size: 26px; margin-bottom: 16px; }
+      .hero-subtitle { font-size: 14px; max-width: 100%; }
+      .hero-badge { font-size: 10px; padding: 6px 12px; margin-bottom: 20px; }
+      .slide-title { font-size: 22px; margin-bottom: 10px; }
+      .slide-subtitle { font-size: 14px; }
+      .slide-number { font-size: 10px; }
+      .slide-nav { bottom: 16px; right: 16px; }
+      .slide-nav-btn { width: 48px; height: 48px; }
+      .slide-nav-btn svg { width: 20px; height: 20px; }
+      .slide-counter { bottom: 72px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .info-card-label { font-size: 9px; }
+      .info-card-value { font-size: 15px; }
+      .content-text { font-size: 14px; line-height: 1.7; }
+      .final-message { font-size: 28px; }
+      .final-sub { font-size: 15px; }
+      .contact-info { flex-direction: column; gap: 16px; margin-top: 28px; }
+      .slide--hero { padding: 32px 20px; }
+      .slide--final { padding: 32px 20px; }
     }
   </style>
 </head>
@@ -628,42 +783,48 @@
 
   <div class="presentation">
     <!-- SIDEBAR ÍNDICE -->
-    <nav class="sidebar-index" id="sidebarIndex">
-      <!-- Generado por JS -->
-    </nav>
+    <nav class="sidebar-index" id="sidebarIndex"></nav>
 
     <!-- SLIDES -->
     <div class="slides-wrapper">
       <div class="slides-track" id="slidesTrack">
 
-        <!-- SLIDE 0: PROYECTO -->
-        <section class="slide slide--hero active" data-section="0" data-slide="0">
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 0: PORTADA                          -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="slide slide--hero" data-section="0" data-slide="0">
           <div class="slide-content-wrapper">
-            <div class="hero-badge">🏪 En desarrollo</div>
-            <h1 class="hero-title">🏪 Sistema de Gestión Almacén Lukas</h1>
-            <p class="hero-subtitle">Plataforma integral para optimizar la gestión de tu almacén familiar.</p>
+            <div class="hero-badge">🏪 En desarrollo — Sistemas de Información</div>
+            <h1 class="hero-title">Sistema de Gestión<br>Almacén Lukas</h1>
+            <p class="hero-subtitle">Plataforma integral para digitalizar la gestión del crédito vecinal y operaciones del almacén familiar.</p>
             <div style="margin-top: 20px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); justify-content: center;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
               Profesor: Jorge Esteban Cornejo Elgueta
             </div>
-            <div style="margin-top: 24px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
-              <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                Lukas Caballero
+            <div style="margin-top: 24px; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-primary);font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Cristian Salazar</div>
+                <span style="font-size:11px;font-weight:600;letter-spacing:0.5px;color:var(--accent);">Jefe de Proyecto</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                Felipe Oria
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-primary);font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Lukas Caballero</div>
+                <span style="font-size:11px;font-weight:600;letter-spacing:0.5px;color:#00c8ff;">Analista de Negocio</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                Benjamin Acuña
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-primary);font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Felipe Oria</div>
+                <span style="font-size:11px;font-weight:600;letter-spacing:0.5px;color:#c06aff;">Analista de Requisitos</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-primary);font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Benjamin Acuña</div>
+                <span style="font-size:11px;font-weight:600;letter-spacing:0.5px;color:#ffaa00;">Diseñador de Sistemas</span>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 1: INTRODUCCIÓN -->
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 1: INTRODUCCIÓN                     -->
+        <!-- ══════════════════════════════════════════ -->
         <section class="slide" data-section="1" data-slide="1">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -674,17 +835,21 @@
             <div class="slide-content">
               <div class="content-block">
                 <p class="content-text">
-                  <strong>Almacén Lukas</strong> es un pequeño almacén familiar ubicado en Lo Prado, dedicado a la venta de <strong>abarrotes</strong> (alimentos básicos y productos de consumo doméstico) y <strong>productos de limpieza</strong> para el hogar.
+                  <strong>Almacén Lukas</strong> es un negocio familiar ubicado en Lo Prado, dedicado a la venta de <strong>abarrotes</strong> y <strong>productos de limpieza</strong> para el hogar. Con más de 10 años atendiendo a la comunidad, su mayor diferenciador es el <strong>crédito vecinal</strong>: un sistema de confianza donde los vecinos pueden llevarse sus productos y pagar después.
                 </p>
               </div>
               <div class="highlight-box">
-                <p>Este proyecto surge de la necesidad de modernizar la gestión del crédito vecinal, automatizando el control de morosos y mejorando la eficiencia operativa del negocio.</p>
+                <p>Este proyecto surge porque ese servicio de confianza —el crédito vecinal— se gestiona hoy en papeles y apuntes, lo que genera desorden, pérdida de información y horas perdidas al mes. <strong>Buscamos digitalizar ese proceso.</strong></p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 2: ANTECEDENTES - Nombre PYME -->
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDES 2–9: ANTECEDENTES                  -->
+        <!-- ══════════════════════════════════════════ -->
+
+        <!-- SLIDE 2: Nombre PYME -->
         <section class="slide" data-section="2" data-slide="2">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -694,28 +859,16 @@
             </div>
             <div class="slide-content">
               <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">🏪 Nombre Comercial</div>
-                  <div class="info-card-value">Almacén Lukas</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">👤 Nombre del Dueño</div>
-                  <div class="info-card-value">Claudio Caballero</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🏢 Tipo de Empresa</div>
-                  <div class="info-card-value">Pequeña Empresa (PYME)</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">📅 Año de Fundación</div>
-                  <div class="info-card-value">2015</div>
-                </div>
+                <div class="info-card"><div class="info-card-label">🏪 Nombre Comercial</div><div class="info-card-value">Almacén Lukas</div></div>
+                <div class="info-card"><div class="info-card-label">👤 Propietario</div><div class="info-card-value">Claudio Caballero</div></div>
+                <div class="info-card"><div class="info-card-label">🏢 Tipo de Empresa</div><div class="info-card-value">Pequeña Empresa (PYME)</div></div>
+                <div class="info-card"><div class="info-card-label">📅 Año de Fundación</div><div class="info-card-value">2015</div></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 3: ANTECEDENTES - Dirección -->
+        <!-- SLIDE 3: Dirección -->
         <section class="slide" data-section="2" data-slide="3">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -725,28 +878,16 @@
             </div>
             <div class="slide-content">
               <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">📍 Dirección</div>
-                  <div class="info-card-value">Chicago 121</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🗺️ Comuna</div>
-                  <div class="info-card-value">Lo Prado</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🏙️ Ciudad</div>
-                  <div class="info-card-value">Santiago</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🗋️ Región</div>
-                  <div class="info-card-value">Región Metropolitana</div>
-                </div>
+                <div class="info-card"><div class="info-card-label">📍 Dirección</div><div class="info-card-value">Chicago 121</div></div>
+                <div class="info-card"><div class="info-card-label">🗺️ Comuna</div><div class="info-card-value">Lo Prado</div></div>
+                <div class="info-card"><div class="info-card-label">🏙️ Ciudad</div><div class="info-card-value">Santiago</div></div>
+                <div class="info-card"><div class="info-card-label">📋 Región</div><div class="info-card-value">Región Metropolitana</div></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 4: ANTECEDENTES - Rubro -->
+        <!-- SLIDE 4: Rubro -->
         <section class="slide" data-section="2" data-slide="4">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -756,25 +897,17 @@
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">
-                  El almacén se encuentra en el sector de <strong>comercio minorista</strong>, específicamente en la venta de abarrotes y productos de limpieza para el hogar.
-                </p>
+                <p class="content-text">El almacén se encuentra en el sector de <strong>comercio minorista</strong>, específicamente en la venta de abarrotes y productos de limpieza para el hogar.</p>
               </div>
               <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">🏪 Sector</div>
-                  <div class="info-card-value">Comercio Minorista</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">📦 Subsector</div>
-                  <div class="info-card-value">Almacén de Abarrotes</div>
-                </div>
+                <div class="info-card"><div class="info-card-label">🏪 Sector</div><div class="info-card-value">Comercio Minorista</div></div>
+                <div class="info-card"><div class="info-card-label">📦 Subsector</div><div class="info-card-value">Almacén de Abarrotes</div></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 5: ANTECEDENTES - Producto y/o Servicio -->
+        <!-- SLIDE 5: Productos y Servicios -->
         <section class="slide" data-section="2" data-slide="5">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -784,25 +917,19 @@
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">
-                  El almacén ofrece <strong>venta de abarrotes</strong> (alimentos básicos y productos de consumo doméstico) y <strong>productos de limpieza</strong> para el hogar. Se atiende tanto en el local como a través de pedidos por WhatsApp y crédito vecinal.
-                </p>
+                <p class="content-text">El almacén ofrece venta de <strong>abarrotes</strong> y <strong>productos de limpieza</strong> para el hogar. Se atiende en local, a través de pedidos por WhatsApp y mediante el servicio de crédito vecinal.</p>
               </div>
               <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">🍞 Producto</div>
-                  <div class="info-card-value">Abarrotes</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🧴 Producto</div>
-                  <div class="info-card-value">Productos de Limpieza</div>
-                </div>
+                <div class="info-card"><div class="info-card-label">🍞 Producto</div><div class="info-card-value">Abarrotes</div></div>
+                <div class="info-card"><div class="info-card-label">🧴 Producto</div><div class="info-card-value">Productos de Limpieza</div></div>
+                <div class="info-card"><div class="info-card-label">💰 Servicio Clave</div><div class="info-card-value">Crédito Vecinal</div></div>
+                <div class="info-card"><div class="info-card-label">💬 Canal</div><div class="info-card-value">Pedidos por WhatsApp</div></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 6: ANTECEDENTES - Historia -->
+        <!-- SLIDE 6: Historia -->
         <section class="slide" data-section="2" data-slide="6">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -812,33 +939,19 @@
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">
-                  <strong>Almacén Lukas</strong> fue fundado en <strong>2015</strong> como un pequeño negocio familiar dedicado a servir a la comunidad de Lo Prado. A lo largo de los años, ha construido relaciones de confianza con sus vecinos, ofreciendo atención personalizada y crédito vecinal.
-                </p>
+                <p class="content-text"><strong>Almacén Lukas</strong> fue fundado en <strong>2015</strong> como un negocio familiar para servir a la comunidad de Lo Prado. En más de una década ha construido relaciones de confianza con sus vecinos, ofreciendo atención personalizada y crédito a quienes lo necesitan.</p>
               </div>
               <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">📅 Año de Fundación</div>
-                  <div class="info-card-value">2015</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">⏱️ Años en el Mercado</div>
-                  <div class="info-card-value">10+ años</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">👨‍👩‍👧‍👦 Tipo de Operación</div>
-                  <div class="info-card-value">Familiar</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🗺️ Cobertura</div>
-                  <div class="info-card-value">Local y Vecinal</div>
-                </div>
+                <div class="info-card"><div class="info-card-label">📅 Fundación</div><div class="info-card-value">2015</div></div>
+                <div class="info-card"><div class="info-card-label">⏱️ Trayectoria</div><div class="info-card-value">+10 años</div></div>
+                <div class="info-card"><div class="info-card-label">👨‍👩‍👧‍👦 Operación</div><div class="info-card-value">Familiar</div></div>
+                <div class="info-card"><div class="info-card-label">🗺️ Cobertura</div><div class="info-card-value">Local y Vecinal</div></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 7: ANTECEDENTES - Dueño -->
+        <!-- SLIDE 7: Dueño -->
         <section class="slide" data-section="2" data-slide="7">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -848,27 +961,18 @@
             </div>
             <div class="slide-content">
               <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">👤 Nombre</div>
-                  <div class="info-card-value">Claudio Caballero</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">💼 Rol</div>
-                  <div class="info-card-value">Propietario y Administrador</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🎯 Experiencia</div>
-                  <div class="info-card-value">+10 años en retail</div>
-                </div>
+                <div class="info-card"><div class="info-card-label">👤 Nombre</div><div class="info-card-value">Claudio Caballero</div></div>
+                <div class="info-card"><div class="info-card-label">💼 Rol</div><div class="info-card-value">Propietario y Administrador</div></div>
+                <div class="info-card"><div class="info-card-label">🎯 Experiencia</div><div class="info-card-value">+10 años en retail</div></div>
               </div>
               <div class="highlight-box">
-                <p>Visión: Ofrecer a la comunidad un servicio de calidad con atención personalizada y productos de primera necesidad a precios accesibles.</p>
+                <p><strong>Visión:</strong> Ofrecer a la comunidad un servicio de calidad con atención personalizada y productos de primera necesidad a precios accesibles, modernizando la gestión del negocio para servir mejor.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 8: ANTECEDENTES - Características -->
+        <!-- SLIDE 8: Características -->
         <section class="slide" data-section="2" data-slide="8">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -878,28 +982,16 @@
             </div>
             <div class="slide-content">
               <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">🤝 Enfoque</div>
-                  <div class="info-card-value">Atención Personalizada</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">💰 Servicio</div>
-                  <div class="info-card-value">Crédito Vecinal</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">💬 Canal</div>
-                  <div class="info-card-value">Pedidos por WhatsApp</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">⏰ Horarios</div>
-                  <div class="info-card-value">Extendido</div>
-                </div>
+                <div class="info-card"><div class="info-card-label">🤝 Enfoque</div><div class="info-card-value">Atención Personalizada</div></div>
+                <div class="info-card"><div class="info-card-label">💰 Servicio</div><div class="info-card-value">Crédito Vecinal</div></div>
+                <div class="info-card"><div class="info-card-label">💬 Canal</div><div class="info-card-value">Pedidos por WhatsApp</div></div>
+                <div class="info-card"><div class="info-card-label">⏰ Horario</div><div class="info-card-value">Extendido</div></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 9: ANTECEDENTES - Competencia -->
+        <!-- SLIDE 9: Competencia -->
         <section class="slide" data-section="2" data-slide="9">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -909,33 +1001,21 @@
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">
-                  La zona de Lo Prado cuenta con varios <strong>minimarkets</strong> y otros almacenes locales. <strong>Almacén Lukas</strong> se diferencia por su <strong>crédito vecinal confiable</strong> y la atención directa y familiar que ofrece a sus clientes regulares.
-                </p>
+                <p class="content-text">La zona de Lo Prado cuenta con varios <strong>minimarkets</strong> y otros almacenes locales. Almacén Lukas se diferencia por su <strong>crédito vecinal confiable</strong> y la relación directa y familiar con sus clientes regulares.</p>
               </div>
               <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">🏪 Competidores Principales</div>
-                  <div class="info-card-value">Minimarkets</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">⭐ Diferenciador</div>
-                  <div class="info-card-value">Crédito Vecinal</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">❤️ Ventaja</div>
-                  <div class="info-card-value">Relación Familiar</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🚀 Oportunidad</div>
-                  <div class="info-card-value">Digitalización</div>
-                </div>
+                <div class="info-card"><div class="info-card-label">🏪 Competidores</div><div class="info-card-value">Minimarkets</div></div>
+                <div class="info-card"><div class="info-card-label">⭐ Diferenciador</div><div class="info-card-value">Crédito Vecinal</div></div>
+                <div class="info-card"><div class="info-card-label">❤️ Ventaja</div><div class="info-card-value">Relación Familiar</div></div>
+                <div class="info-card"><div class="info-card-label">🚀 Oportunidad</div><div class="info-card-value">Digitalización</div></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 10: OBJETIVO DEL PROYECTO -->
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 10: OBJETIVO DEL PROYECTO           -->
+        <!-- ══════════════════════════════════════════ -->
         <section class="slide" data-section="3" data-slide="10">
           <div class="slide-content-wrapper">
             <div class="slide-header">
@@ -945,291 +1025,451 @@
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">
-                  <strong>Objetivo General:</strong> Liberar tiempo al dueño del almacén de estar revisando constantemente a los morosos, automatizando el proceso de control de crédito vecinal.
-                </p>
+                <p class="content-text"><strong>Objetivo general:</strong> Desarrollar e implementar un sistema de gestión que libere al propietario de la revisión manual de morosos, automatizando el control del crédito vecinal y centralizando la información del negocio.</p>
               </div>
               <div class="highlight-box">
-                <p><strong>🎯 Beneficios Esperados:</strong></p>
-                <p style="margin-top: 12px;">• ✅ Eliminación de hojas de notas y apuntes manuales<br>
-                • 🔍 Búsqueda rápida de clientes con deudas pendientes<br>
-                • 📊 Historial completo de pagos y créditos<br>
-                • 💬 Cobro automatizado vía WhatsApp</p>
+                <p><strong>🎯 Beneficios esperados:</strong></p>
+                <p style="margin-top:12px;">
+                  • ✅ Eliminación de hojas de notas y apuntes manuales<br>
+                  • 🔍 Búsqueda rápida de clientes con deudas pendientes<br>
+                  • 📊 Historial completo de pagos y créditos por cliente<br>
+                  • 💬 Cobro automatizado vía WhatsApp con un solo clic<br>
+                  • ⏱️ Reducción de al menos un 80% del tiempo mensual dedicado al cobro
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 11: PROCESOS -->
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 11: PROCESOS — VISIÓN GENERAL       -->
+        <!-- ══════════════════════════════════════════ -->
         <section class="slide" data-section="4" data-slide="11">
           <div class="slide-content-wrapper">
             <div class="slide-header">
-              <div class="slide-number">04</div>
-              <h2 class="slide-title">Procesos</h2>
-              <p class="slide-subtitle">Flujo de trabajo y operaciones del almacén.</p>
+              <div class="slide-number">04 — 1/4</div>
+              <h2 class="slide-title">Procesos del Almacén</h2>
+              <p class="slide-subtitle">El almacén opera con 6 procesos principales. Uno de ellos es el origen del problema.</p>
             </div>
             <div class="slide-content">
-              <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">1️⃣ Proceso</div>
-                  <div class="info-card-value">Compra a Proveedores</div>
+              <div class="process-flow">
+                <div class="process-step">
+                  <div class="step-icon">🛒</div>
+                  <div class="step-body">
+                    <div class="step-title">1 · Compra a proveedores</div>
+                    <div class="step-desc">Adquisición de abarrotes y productos de limpieza a distribuidores y mayoristas.</div>
+                  </div>
                 </div>
-                <div class="info-card">
-                  <div class="info-card-label">2️⃣ Proceso</div>
-                  <div class="info-card-value">Recepción e Inventario</div>
+                <div class="process-step">
+                  <div class="step-icon">📦</div>
+                  <div class="step-body">
+                    <div class="step-title">2 · Recepción e inventario</div>
+                    <div class="step-desc">Recepción de mercadería, almacenamiento y control de stock disponible.</div>
+                  </div>
                 </div>
-                <div class="info-card">
-                  <div class="info-card-label">3️⃣ Proceso</div>
-                  <div class="info-card-value">Venta Retail</div>
+                <div class="process-step">
+                  <div class="step-icon">🏪</div>
+                  <div class="step-body">
+                    <div class="step-title">3 · Venta retail</div>
+                    <div class="step-desc">Atención directa al cliente en el local, venta al contado.</div>
+                  </div>
                 </div>
-                <div class="info-card">
-                  <div class="info-card-label">4️⃣ Proceso</div>
-                  <div class="info-card-value">Crédito Vecinal</div>
+                <div class="process-step highlight-step">
+                  <div class="step-icon">💰</div>
+                  <div class="step-body">
+                    <div class="step-title">4 · Crédito vecinal ← AQUÍ ESTÁ EL PROBLEMA</div>
+                    <div class="step-desc">Venta fiada a clientes de confianza. Se registra manualmente en hojas de notas.</div>
+                  </div>
                 </div>
-                <div class="info-card">
-                  <div class="info-card-label">5️⃣ Proceso</div>
-                  <div class="info-card-value">Pedidos por WhatsApp</div>
+                <div class="process-step">
+                  <div class="step-icon">💬</div>
+                  <div class="step-body">
+                    <div class="step-title">5 · Pedidos por WhatsApp</div>
+                    <div class="step-desc">Toma de pedidos a distancia para entrega o retiro en el local.</div>
+                  </div>
                 </div>
-                <div class="info-card">
-                  <div class="info-card-label">6️⃣ Proceso</div>
-                  <div class="info-card-value">Control de Caja</div>
+                <div class="process-step">
+                  <div class="step-icon">💵</div>
+                  <div class="step-body">
+                    <div class="step-title">6 · Control de caja</div>
+                    <div class="step-desc">Gestión de pagos recibidos y conciliación diaria del efectivo.</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 12: PROBLEMA A RESOLVER -->
-        <section class="slide" data-section="5" data-slide="12">
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 12: ¿QUÉ ES EL CRÉDITO VECINAL?    -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="slide" data-section="4" data-slide="12">
           <div class="slide-content-wrapper">
             <div class="slide-header">
-              <div class="slide-number">05</div>
-              <h2 class="slide-title">Problema a Resolver</h2>
-              <p class="slide-subtitle">Desafío identificado y justificación del proyecto.</p>
+              <div class="slide-number">04 — 2/4</div>
+              <h2 class="slide-title">¿Qué es el crédito vecinal?</h2>
+              <p class="slide-subtitle">El servicio diferenciador del almacén — y el que genera el problema.</p>
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">
-                  Al llegar <strong>fin de mes</strong>, el dueño del almacén debe revisar entre <strong>todas las hojas de notas y apuntes</strong> para encontrar a los clientes que no han pagado y luego ir a cobrarles directamente por WhatsApp.
-                </p>
+                <p class="content-text">El <strong>crédito vecinal</strong> —también conocido como "venta al fiado"— es un sistema de confianza donde un cliente habitual del barrio se lleva productos del almacén <strong>sin pagar en el momento</strong>. El dueño le anota la deuda, y el cliente la paga más adelante, generalmente a fin de mes.</p>
               </div>
-              <div class="highlight-box">
-                <p><strong>⚠️ Problemas Identificados:</strong></p>
-                <p style="margin-top: 12px;">• 📝 Desorganización en el registro de deudas<br>
-                • ❌ Pérdida de información de clientes<br>
-                • ⏰ Proceso manual y lento de cobro<br>
-                • 👁️ Sin visibilidad clara de estados de cuenta</p>
+              <div class="highlight-box" style="margin-bottom:0;">
+                <p>Es una práctica histórica en los almacenes chilenos. Funciona sobre la <strong>confianza y el conocimiento personal</strong> entre el almacenero y sus vecinos. En Almacén Lukas, este servicio es uno de los principales factores de fidelización de clientes.</p>
+              </div>
+              <div class="info-grid" style="margin-top:16px;">
+                <div class="info-card">
+                  <div class="info-card-label">🤝 Cómo funciona</div>
+                  <div class="info-card-value small">El vecino lleva productos hoy y los paga cuando pueda, basado en la confianza mutua.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">📅 Cuándo se cobra</div>
+                  <div class="info-card-value small">Generalmente a fin de mes, cuando los clientes reciben su sueldo o pensión.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">👥 Quiénes acceden</div>
+                  <div class="info-card-value small">Solo clientes conocidos y de confianza del almacén, vecinos habituales.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">📝 Cómo se registra hoy</div>
+                  <div class="info-card-value small">En hojas de papel, libretas y apuntes escritos a mano por el propietario.</div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 13: DESPEDIDA -->
-        <section class="slide slide--final" data-section="6" data-slide="13">
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 13: EL PROBLEMA EN DETALLE          -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="slide" data-section="4" data-slide="13">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">04 — 3/4</div>
+              <h2 class="slide-title">El problema en detalle</h2>
+              <p class="slide-subtitle">Lo que ocurre cada fin de mes en el almacén.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">En palabras del propio dueño: <strong>"Al llegar fin de mes, debo revisar entre todas las hojas de notas y apuntes para encontrar a los clientes que no han pagado y luego ir a cobrarles por WhatsApp."</strong></p>
+              </div>
+              <div class="problem-grid">
+                <div class="problem-card">
+                  <div class="problem-card-icon">📝</div>
+                  <div class="problem-card-title">Desorganización en el registro</div>
+                  <div class="problem-card-desc">Las deudas se anotan en hojas sueltas y libretas. No hay un orden claro: no se sabe de inmediato quién debe ni cuánto.</div>
+                </div>
+                <div class="problem-card">
+                  <div class="problem-card-icon">📄</div>
+                  <div class="problem-card-title">Pérdida de información</div>
+                  <div class="problem-card-desc">Las hojas de papel se deterioran, extravían o dañan con facilidad. Una hoja perdida significa una deuda que nunca se cobra.</div>
+                </div>
+                <div class="problem-card">
+                  <div class="problem-card-icon">⏰</div>
+                  <div class="problem-card-title">Proceso lento y manual</div>
+                  <div class="problem-card-desc">Cada fin de mes el dueño invierte varias horas revisando apuntes uno a uno para armar la lista de personas que deben dinero.</div>
+                </div>
+                <div class="problem-card">
+                  <div class="problem-card-icon">👁️</div>
+                  <div class="problem-card-title">Sin visibilidad del estado de cuenta</div>
+                  <div class="problem-card-desc">Es imposible saber rápidamente cuánto debe un cliente específico sin revisar todos los papeles desde el principio.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 14: ANTES VS. DESPUÉS               -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="slide" data-section="4" data-slide="14">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">04 — 4/4</div>
+              <h2 class="slide-title">Antes y después del sistema</h2>
+              <p class="slide-subtitle">Cómo cambia el proceso de crédito vecinal con la solución propuesta.</p>
+            </div>
+            <div class="slide-content">
+              <div class="comparison-row">
+                <div class="comparison-col before">
+                  <div class="comparison-label">❌ Hoy — Sin sistema</div>
+                  <div class="comparison-item"><span>📝</span><span>El dueño anota la deuda a mano en una hoja o libreta</span></div>
+                  <div class="comparison-item"><span>🗂️</span><span>Las hojas se acumulan sin orden durante todo el mes</span></div>
+                  <div class="comparison-item"><span>🔍</span><span>Al fin de mes revisa todo manualmente buscando morosos</span></div>
+                  <div class="comparison-item"><span>💬</span><span>Escribe a cada moroso a mano por WhatsApp uno por uno</span></div>
+                  <div class="comparison-item"><span>😰</span><span>Riesgo de olvidar deudas, perder hojas o equivocar montos</span></div>
+                  <div class="comparison-item"><span>⏰</span><span>Horas perdidas en un proceso que debería tomar minutos</span></div>
+                </div>
+                <div class="comparison-col after">
+                  <div class="comparison-label">✅ Con el sistema</div>
+                  <div class="comparison-item"><span>📱</span><span>El dueño registra el crédito en segundos desde el celular</span></div>
+                  <div class="comparison-item"><span>💾</span><span>El sistema guarda todo automáticamente con fecha y monto</span></div>
+                  <div class="comparison-item"><span>⚡</span><span>Con un clic ve la lista de morosos actualizada al instante</span></div>
+                  <div class="comparison-item"><span>🤖</span><span>El sistema genera el mensaje de cobro listo para WhatsApp</span></div>
+                  <div class="comparison-item"><span>📊</span><span>Historial completo de cada cliente: deudas y pagos</span></div>
+                  <div class="comparison-item"><span>🎯</span><span>El fin de mes pasa de horas de trabajo a minutos</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 15: RESUMEN ACTA DE CONSTITUCIÓN    -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="slide" data-section="5" data-slide="15">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">05</div>
+              <h2 class="slide-title">Acta de Constitución</h2>
+              <p class="slide-subtitle">Resumen del contrato formal que da inicio al proyecto.</p>
+            </div>
+            <div class="slide-content">
+              <div class="acta-grid">
+
+                <!-- Equipo -->
+                <div class="acta-block">
+                  <div class="acta-block-title">👥 Equipo de Desarrollo</div>
+                  <div class="acta-team-row">
+                    <span class="acta-team-badge jefe">JP</span>
+                    <div>
+                      <div class="acta-team-name">Cristian Salazar</div>
+                      <div class="acta-team-role">Jefe de Proyecto</div>
+                    </div>
+                  </div>
+                  <div class="acta-team-row">
+                    <span class="acta-team-badge" style="background:rgba(0,200,255,0.1);color:#00c8ff;border:1px solid rgba(0,200,255,0.2);">AN</span>
+                    <div>
+                      <div class="acta-team-name">Lukas Caballero</div>
+                      <div class="acta-team-role">Analista de Negocio</div>
+                    </div>
+                  </div>
+                  <div class="acta-team-row">
+                    <span class="acta-team-badge" style="background:rgba(180,100,255,0.1);color:#c06aff;border:1px solid rgba(180,100,255,0.2);">AR</span>
+                    <div>
+                      <div class="acta-team-name">Felipe Oria</div>
+                      <div class="acta-team-role">Analista de Requisitos</div>
+                    </div>
+                  </div>
+                  <div class="acta-team-row">
+                    <span class="acta-team-badge" style="background:rgba(255,170,0,0.1);color:#ffaa00;border:1px solid rgba(255,170,0,0.2);">DS</span>
+                    <div>
+                      <div class="acta-team-name">Benjamin Acuña</div>
+                      <div class="acta-team-role">Diseñador de Sistemas</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Información general -->
+                <div class="acta-block">
+                  <div class="acta-block-title">📋 Información General</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Proyecto:</strong> Sistema de Gestión Almacén Lukas</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Cliente:</strong> Almacén Lukas — Sr. Claudio Caballero</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Profesor:</strong> Jorge Esteban Cornejo Elgueta</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Asignatura:</strong> Sistemas de Información</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Costo:</strong> Sin costo monetario (proyecto académico)</span></div>
+                </div>
+
+                <!-- Objetivos -->
+                <div class="acta-block">
+                  <div class="acta-block-title">🎯 Objetivos del Proyecto</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Desarrollar un sistema web de gestión del crédito vecinal en tiempo real</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Módulo de clientes con historial de deudas y pagos</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Módulo de notificaciones: mensajes de cobro automáticos para WhatsApp</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Módulo de inventario básico (abarrotes y limpieza)</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Reducir en al menos un <strong style="color:var(--accent);">80%</strong> el tiempo de cobro mensual</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Capacitar al propietario antes de la entrega final</span></div>
+                </div>
+
+                <!-- Cronograma -->
+                <div class="acta-block">
+                  <div class="acta-block-title">📅 Cronograma de Hitos</div>
+                  <div class="hito-row"><span class="hito-date">Abril 2026</span><span class="hito-desc">Firma del acta y Entrega Evaluación 1</span></div>
+                  <div class="hito-row"><span class="hito-date">Mayo 2026</span><span class="hito-desc">Diseño BD, interfaces e inicio del desarrollo</span></div>
+                  <div class="hito-row"><span class="hito-date">Mayo 2026</span><span class="hito-desc">Desarrollo módulo notificaciones e inventario</span></div>
+                  <div class="hito-row"><span class="hito-date">Fin Mayo 2026</span><span class="hito-desc">Integración de módulos y pruebas</span></div>
+                  <div class="hito-row"><span class="hito-date">1ª sem. Junio</span><span class="hito-desc">Capacitación y entrega final del sistema</span></div>
+                </div>
+
+              </div>
+
+              <!-- Restricciones y riesgos clave -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;">
+                <div class="acta-block">
+                  <div class="acta-block-title" style="color:var(--accent-amber);">⚠️ Restricciones Clave</div>
+                  <div class="acta-item"><div class="acta-item-dot amber"></div><span>Solo herramientas gratuitas / open-source</span></div>
+                  <div class="acta-item"><div class="acta-item-dot amber"></div><span>Sistema exclusivo para Almacén Lukas</span></div>
+                  <div class="acta-item"><div class="acta-item-dot amber"></div><span>Sin integración bancaria ni pagos en línea</span></div>
+                  <div class="acta-item"><div class="acta-item-dot amber"></div><span>Plazo condicionado al calendario académico</span></div>
+                </div>
+                <div class="acta-block">
+                  <div class="acta-block-title" style="color:var(--accent-red);">🔴 Riesgos Identificados</div>
+                  <div class="acta-item"><div class="acta-item-dot red"></div><span>Disponibilidad del cliente para reuniones</span></div>
+                  <div class="acta-item"><div class="acta-item-dot red"></div><span>Scope creep fuera del calendario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot red"></div><span>Migración incompleta de datos en papel</span></div>
+                  <div class="acta-item"><div class="acta-item-dot red"></div><span>Resistencia al cambio del propietario</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SLIDE 16: DESPEDIDA                       -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="slide slide--final" data-section="6" data-slide="16">
           <div class="slide-content-wrapper">
             <h2 class="final-message">¡Gracias!</h2>
-            <p class="final-sub">En Almacén Lukas buscamos modernizar nuestra gestión y mejorar la experiencia tanto para el negocio como para nuestros clientes. Con este sistema, podrán olvidarse de las hojas de notas y encontrar rápidamente a quienes deben, todo en un solo lugar.</p>
-            <div class="highlight-box" style="margin-top: 24px; text-align: left;">
+            <p class="final-sub">En Almacén Lukas buscamos modernizar la gestión y mejorar la experiencia tanto para el negocio como para sus clientes. Con este sistema, el crédito vecinal deja de ser un dolor de cabeza y pasa a ser una ventaja competitiva real.</p>
+            <div class="highlight-box" style="margin-top:24px;text-align:left;max-width:520px;">
               <p><strong>✨ Propuesta de valor:</strong></p>
-              <p style="margin-top: 8px;">• 💰 Control eficiente del crédito vecinal<br>
-              • 🗂️ Gestión centralizada de clientes y deudas<br>
-              • ⚡ Atención más rápida y organizada por WhatsApp</p>
+              <p style="margin-top:8px;">
+                • 💰 Control eficiente del crédito vecinal<br>
+                • 🗂️ Gestión centralizada de clientes y deudas<br>
+                • ⚡ Cobro automático con mensaje de WhatsApp listo para enviar
+              </p>
             </div>
-            <p class="final-sub" style="margin-top: 24px;">Estamos abiertos a preguntas y comentarios.</p>
+            <p class="final-sub" style="margin-top:24px;">Estamos abiertos a preguntas y comentarios.</p>
             <div class="contact-info">
               <div class="contact-item">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                Lukas Caballero, Felipe Oria, Benjamin Acuña
-              </div>
-              <div class="contact-item">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                +56 9 XXXX XXXX
+                Cristian Salazar · Lukas Caballero · Felipe Oria · Benjamin Acuña
               </div>
             </div>
           </div>
         </section>
 
       </div>
-  </div>
+    </div><!-- /slides-wrapper -->
 
-  <!-- SLIDE NAVIGATION (bottom right) -->
+    <!-- NAVEGACIÓN -->
     <div class="slide-nav">
       <button class="slide-nav-btn" id="navPrev">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
       <button class="slide-nav-btn" id="navNext">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
     </div>
 
-    <!-- SLIDE COUNTER -->
+    <!-- CONTADOR -->
     <div class="slide-counter">
-      <span id="currentSlideNum">1</span> / <span id="totalSlides">14</span>
+      <span id="currentSlideNum">1</span> / <span id="totalSlides">17</span>
     </div>
-  </div>
+
+  </div><!-- /presentation -->
 
   <script>
     const slideData = [
-      { sectionId: 0, title: 'Proyecto', slides: [{ id: 0, title: 'Proyecto' }] },
-      { sectionId: 1, title: 'Introducción', slides: [{ id: 1, title: 'Introducción' }] },
+      { sectionId: 0, title: 'Proyecto',   slides: [{ id: 0,  title: 'Portada' }] },
+      { sectionId: 1, title: 'Intro',      slides: [{ id: 1,  title: 'Introducción' }] },
       { sectionId: 2, title: 'Antecedentes', slides: [
-        { id: 2, title: 'Nombre de la PYME' },
-        { id: 3, title: 'Dirección' },
-        { id: 4, title: 'Rubro' },
-        { id: 5, title: 'Producto y/o Servicio' },
-        { id: 6, title: 'Historia' },
-        { id: 7, title: 'Dueño' },
-        { id: 8, title: 'Características' },
-        { id: 9, title: 'Competencia' }
+        { id: 2,  title: 'Nombre PYME' },
+        { id: 3,  title: 'Dirección' },
+        { id: 4,  title: 'Rubro' },
+        { id: 5,  title: 'Productos' },
+        { id: 6,  title: 'Historia' },
+        { id: 7,  title: 'Dueño' },
+        { id: 8,  title: 'Características' },
+        { id: 9,  title: 'Competencia' },
       ]},
-      { sectionId: 3, title: 'Objetivo del Proyecto', slides: [{ id: 10, title: 'Objetivo del Proyecto' }] },
-      { sectionId: 4, title: 'Procesos', slides: [{ id: 11, title: 'Procesos' }] },
-      { sectionId: 5, title: 'Problema a Resolver', slides: [{ id: 12, title: 'Problema a Resolver' }] },
-      { sectionId: 6, title: 'Despedida', slides: [{ id: 13, title: 'Despedida' }] }
+      { sectionId: 3, title: 'Objetivo',   slides: [{ id: 10, title: 'Objetivo del Proyecto' }] },
+      { sectionId: 4, title: 'Procesos',   slides: [
+        { id: 11, title: 'Procesos del Almacén' },
+        { id: 12, title: '¿Qué es el Crédito Vecinal?' },
+        { id: 13, title: 'El Problema en Detalle' },
+        { id: 14, title: 'Antes y Después' },
+      ]},
+      { sectionId: 5, title: 'Acta',       slides: [{ id: 15, title: 'Acta de Constitución' }] },
+      { sectionId: 6, title: 'Cierre',     slides: [{ id: 16, title: 'Despedida' }] },
     ];
 
-    let currentSlideIndex = 0;
-    const totalSlides = 14;
-    const slides = document.querySelectorAll('.slide');
-    const slidesTrack = document.getElementById('slidesTrack');
+    const TOTAL = 17;
+    let current = 0;
+    const track   = document.getElementById('slidesTrack');
+    const slides  = document.querySelectorAll('.slide');
 
     function init() {
-      renderSidebarIndex();
-      updateNavigation();
-      setupKeyboardNav();
-      setupScrollSnap();
+      renderSidebar();
+      update();
+      setupKeys();
+      setupScroll();
+      document.getElementById('navPrev').addEventListener('click', prev);
+      document.getElementById('navNext').addEventListener('click', next);
     }
 
-    function renderSidebarIndex() {
+    function renderSidebar() {
       const container = document.getElementById('sidebarIndex');
       container.innerHTML = '';
-
-      slideData.forEach((category, catIndex) => {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.className = 'index-category';
-
-        const nameDiv = document.createElement('div');
-        nameDiv.className = 'category-name';
-        nameDiv.textContent = category.title;
-
-        const dotsDiv = document.createElement('div');
-        dotsDiv.className = 'category-dots';
-
-        category.slides.forEach((slide, slideIndex) => {
+      slideData.forEach((cat, ci) => {
+        const catDiv  = document.createElement('div');
+        catDiv.className = 'index-category';
+        const name    = document.createElement('div');
+        name.className = 'category-name';
+        name.textContent = cat.title;
+        const dots    = document.createElement('div');
+        dots.className = 'category-dots';
+        cat.slides.forEach(s => {
           const dot = document.createElement('div');
           dot.className = 'category-dot';
-          dot.dataset.slideId = slide.id;
-          dot.title = slide.title;
-
-          if (slide.id === 0) dot.classList.add('active');
-
-          dot.addEventListener('click', () => goToSlide(slide.id));
-          dotsDiv.appendChild(dot);
+          dot.dataset.slideId = s.id;
+          dot.title = s.title;
+          dot.addEventListener('click', () => go(s.id));
+          dots.appendChild(dot);
         });
-
-        categoryDiv.appendChild(nameDiv);
-        categoryDiv.appendChild(dotsDiv);
-        container.appendChild(categoryDiv);
-
-        if (catIndex < slideData.length - 1) {
-          const separator = document.createElement('div');
-          separator.className = 'category-separator';
-          container.appendChild(separator);
+        catDiv.appendChild(name);
+        catDiv.appendChild(dots);
+        container.appendChild(catDiv);
+        if (ci < slideData.length - 1) {
+          const sep = document.createElement('div');
+          sep.className = 'category-separator';
+          container.appendChild(sep);
         }
       });
     }
 
-    function goToSlide(index) {
-      if (index < 0 || index >= totalSlides) return;
-      currentSlideIndex = index;
-      updateNavigation();
+    function go(index) {
+      if (index < 0 || index >= TOTAL) return;
+      current = index;
+      update();
     }
 
-    function nextSlide() {
-      if (currentSlideIndex < totalSlides - 1) {
-        currentSlideIndex++;
-        updateNavigation();
-      }
-    }
+    function next() { go(current + 1); }
+    function prev() { go(current - 1); }
 
-    function prevSlide() {
-      if (currentSlideIndex > 0) {
-        currentSlideIndex--;
-        updateNavigation();
-      }
-    }
-
-    function updateNavigation() {
-      slidesTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-
-      slides.forEach((slide, index) => {
-        slide.classList.remove('active');
-        if (index === currentSlideIndex) {
-          slide.classList.add('active');
-        }
-      });
-
+    function update() {
+      track.style.transform = `translateX(-${current * 100}%)`;
       document.querySelectorAll('.category-dot').forEach(dot => {
-        dot.classList.remove('active', 'completed');
-        const slideId = parseInt(dot.dataset.slideId);
-        if (slideId === currentSlideIndex) {
-          dot.classList.add('active');
-        } else if (slideId < currentSlideIndex) {
-          dot.classList.add('completed');
-        }
+        const id = parseInt(dot.dataset.slideId);
+        dot.classList.toggle('active',    id === current);
+        dot.classList.toggle('completed', id  <  current);
+        if (id >= current) dot.classList.remove('completed');
+        if (id < current)  { dot.classList.remove('active'); dot.classList.add('completed'); }
       });
-
-      document.getElementById('currentSlideNum').textContent = currentSlideIndex + 1;
+      document.getElementById('currentSlideNum').textContent = current + 1;
     }
 
-    function setupKeyboardNav() {
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight' || e.key === ' ') {
-          e.preventDefault();
-          nextSlide();
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          prevSlide();
-        }
+    function setupKeys() {
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+        if (e.key === 'ArrowLeft')                   { e.preventDefault(); prev(); }
       });
-
-      document.getElementById('navPrev').addEventListener('click', prevSlide);
-      document.getElementById('navNext').addEventListener('click', nextSlide);
     }
 
-    function setupScrollSnap() {
-      let scrollTimeout;
-      const slidesWrapper = document.querySelector('.slides-wrapper');
-
-      slidesWrapper.addEventListener('wheel', (e) => {
+    function setupScroll() {
+      let t;
+      document.querySelector('.slides-wrapper').addEventListener('wheel', e => {
         e.preventDefault();
-
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          if (e.deltaY > 0 || e.deltaX > 0) {
-            nextSlide();
-          } else if (e.deltaY < 0 || e.deltaX < 0) {
-            prevSlide();
-          }
-        }, 10);
+        clearTimeout(t);
+        t = setTimeout(() => { (e.deltaY > 0 || e.deltaX > 0) ? next() : prev(); }, 10);
       }, { passive: false });
 
-      let touchStartX = 0;
-      slidesWrapper.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-      }, { passive: true });
-
-      slidesWrapper.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 50) {
-          if (diff > 0) nextSlide();
-          else prevSlide();
-        }
+      let sx = 0;
+      const sw = document.querySelector('.slides-wrapper');
+      sw.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+      sw.addEventListener('touchend',   e => {
+        const diff = sx - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
       }, { passive: true });
     }
 
