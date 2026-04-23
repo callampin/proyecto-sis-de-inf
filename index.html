@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presentación — Sistema de Gestión Almacén Lukas</title>
+  <title>Presentación — Sistema de Gestión Almacén Lukas (Eval. 1)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -232,14 +232,6 @@
       color: var(--text-secondary);
     }
 
-    .highlight-box.danger {
-      border-left-color: var(--accent-red);
-    }
-
-    .highlight-box.warning {
-      border-left-color: var(--accent-amber);
-    }
-
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -393,7 +385,7 @@
       line-height: 1.5;
     }
 
-    /* ===== BEFORE/AFTER ===== */
+    /* ===== BEFORE/AFTER / COMPARISONS ===== */
     .comparison-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -407,13 +399,18 @@
     }
 
     .comparison-col.before {
-      background: rgba(255, 68, 102, 0.05);
-      border: 1px solid rgba(255, 68, 102, 0.2);
+      background: rgba(255, 170, 0, 0.05);
+      border: 1px solid rgba(255, 170, 0, 0.2);
     }
 
     .comparison-col.after {
       background: rgba(0, 255, 136, 0.05);
       border: 1px solid rgba(0, 255, 136, 0.2);
+    }
+
+    .comparison-col.danger-before {
+      background: rgba(255, 68, 102, 0.05);
+      border: 1px solid rgba(255, 68, 102, 0.2);
     }
 
     .comparison-label {
@@ -424,7 +421,8 @@
       margin-bottom: 12px;
     }
 
-    .comparison-col.before .comparison-label { color: var(--accent-red); }
+    .comparison-col.before .comparison-label { color: var(--accent-amber); }
+    .comparison-col.danger-before .comparison-label { color: var(--accent-red); }
     .comparison-col.after  .comparison-label { color: var(--accent); }
 
     .comparison-item {
@@ -439,9 +437,7 @@
 
     .comparison-item:last-child { margin-bottom: 0; }
 
-    .comparison-item span:first-child { flex-shrink: 0; font-size: 14px; }
-
-    /* ===== ACTA SUMMARY ===== */
+    /* ===== ACTA SUMMARY / REQUISITOS ===== */
     .acta-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -484,70 +480,6 @@
       background: var(--accent);
       flex-shrink: 0;
       margin-top: 6px;
-    }
-
-    .acta-item-dot.red    { background: var(--accent-red); }
-    .acta-item-dot.amber  { background: var(--accent-amber); }
-
-    .acta-team-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-      font-size: 13px;
-    }
-
-    .acta-team-row:last-child { margin-bottom: 0; }
-
-    .acta-team-name {
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-
-    .acta-team-role {
-      color: var(--text-muted);
-      font-size: 12px;
-    }
-
-    .acta-team-badge {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      padding: 2px 8px;
-      border-radius: 100px;
-      background: rgba(0,255,136,0.1);
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .acta-team-badge.jefe {
-      background: rgba(0,255,136,0.15);
-      border: 1px solid rgba(0,255,136,0.3);
-    }
-
-    .hito-row {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      padding: 7px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-
-    .hito-row:last-child { border-bottom: none; }
-
-    .hito-date {
-      color: var(--accent);
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      min-width: 108px;
-      flex-shrink: 0;
-      font-size: 12px;
-    }
-
-    .hito-desc {
-      color: var(--text-secondary);
-      line-height: 1.4;
     }
 
     /* ===== SLIDE NAVIGATION ===== */
@@ -613,8 +545,6 @@
       align-items: center;
     }
 
-    .slide--hero .slide-content { align-items: center; }
-
     .hero-title {
       font-family: 'Outfit', sans-serif;
       font-size: 56px;
@@ -677,8 +607,6 @@
       background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     }
 
-    .slide--final .slide-content { align-items: center; }
-
     .final-message {
       font-family: 'Outfit', sans-serif;
       font-size: 48px;
@@ -707,12 +635,6 @@
       gap: 8px;
       font-size: 14px;
       color: var(--text-muted);
-    }
-
-    .contact-item svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--accent);
     }
 
     ::-webkit-scrollbar { width: 4px; }
@@ -747,56 +669,22 @@
       .problem-grid { grid-template-columns: 1fr; }
       .comparison-row { grid-template-columns: 1fr; }
       .acta-grid { grid-template-columns: 1fr; }
-      .info-card { padding: 16px; }
-      .info-card-value { font-size: 16px; }
-      .highlight-box { padding: 16px 20px; margin: 16px 0; }
-      .highlight-box p { font-size: 14px; }
-      .content-block { margin-bottom: 20px; }
-      .slide-header { margin-bottom: 28px; }
-    }
-
-    @media (max-width: 480px) {
-      .slide { padding: 32px 20px; }
-      .hero-title { font-size: 26px; margin-bottom: 16px; }
-      .hero-subtitle { font-size: 14px; max-width: 100%; }
-      .hero-badge { font-size: 10px; padding: 6px 12px; margin-bottom: 20px; }
-      .slide-title { font-size: 22px; margin-bottom: 10px; }
-      .slide-subtitle { font-size: 14px; }
-      .slide-number { font-size: 10px; }
-      .slide-nav { bottom: 16px; right: 16px; }
-      .slide-nav-btn { width: 48px; height: 48px; }
-      .slide-nav-btn svg { width: 20px; height: 20px; }
-      .slide-counter { bottom: 72px; }
-      .info-grid { grid-template-columns: 1fr; }
-      .info-card-label { font-size: 9px; }
-      .info-card-value { font-size: 15px; }
-      .content-text { font-size: 14px; line-height: 1.7; }
-      .final-message { font-size: 28px; }
-      .final-sub { font-size: 15px; }
-      .contact-info { flex-direction: column; gap: 16px; margin-top: 28px; }
-      .slide--hero { padding: 32px 20px; }
-      .slide--final { padding: 32px 20px; }
     }
   </style>
 </head>
 <body>
 
   <div class="presentation">
-    <!-- SIDEBAR ÍNDICE -->
     <nav class="sidebar-index" id="sidebarIndex"></nav>
 
-    <!-- SLIDES -->
     <div class="slides-wrapper">
       <div class="slides-track" id="slidesTrack">
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 0: PORTADA                          -->
-        <!-- ══════════════════════════════════════════ -->
         <section class="slide slide--hero" data-section="0" data-slide="0">
           <div class="slide-content-wrapper">
-            <div class="hero-badge">🏪 En desarrollo — Sistemas de Información</div>
+            <div class="hero-badge">📋 Evaluación N° 1 — Sistemas de Información</div>
             <h1 class="hero-title">Sistema de Gestión<br>Almacén Lukas</h1>
-            <p class="hero-subtitle">Plataforma integral para digitalizar la gestión del crédito vecinal y operaciones del almacén familiar.</p>
+            <p class="hero-subtitle">Análisis, Levantamiento de Requisitos y Planificación para digitalizar la gestión del crédito vecinal.</p>
             <div style="margin-top: 20px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); justify-content: center;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
               Profesor: Jorge Esteban Cornejo Elgueta
@@ -818,236 +706,41 @@
                 <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-primary);font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Benjamin Acuña</div>
                 <span style="font-size:11px;font-weight:600;letter-spacing:0.5px;color:#ffaa00;">Diseñador de Sistemas</span>
               </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-primary);font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Simón Aros</div>
+                <span style="font-size:11px;font-weight:600;letter-spacing:0.5px;color:var(--accent-red);">Desarrollador Backend</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 1: INTRODUCCIÓN                     -->
-        <!-- ══════════════════════════════════════════ -->
         <section class="slide" data-section="1" data-slide="1">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">01</div>
-              <h2 class="slide-title">Introducción</h2>
-              <p class="slide-subtitle">Contexto general del almacén y su relevancia en la comunidad.</p>
+              <h2 class="slide-title">Antecedentes del Negocio</h2>
+              <p class="slide-subtitle">Resumen de la empresa y su operación comercial (Presentado anteriormente).</p>
             </div>
             <div class="slide-content">
               <div class="content-block">
                 <p class="content-text">
-                  <strong>Almacén Lukas</strong> es un negocio familiar ubicado en Lo Prado, dedicado a la venta de <strong>abarrotes</strong> y <strong>productos de limpieza</strong> para el hogar. Con más de 10 años atendiendo a la comunidad, su mayor diferenciador es el <strong>crédito vecinal</strong>: un sistema de confianza donde los vecinos pueden llevarse sus productos y pagar después.
+                  <strong>Almacén Lukas</strong> es un negocio familiar minorista fundado en el año 2015, ubicado en la comuna de Lo Prado. Su propietario, el Sr. Claudio Caballero, atiende a la comunidad vecinal ofreciendo abarrotes y productos de limpieza.
                 </p>
               </div>
-              <div class="highlight-box">
-                <p>Este proyecto surge porque ese servicio de confianza —el crédito vecinal— se gestiona hoy en papeles y apuntes, lo que genera desorden, pérdida de información y horas perdidas al mes. <strong>Buscamos digitalizar ese proceso.</strong></p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDES 2–9: ANTECEDENTES                  -->
-        <!-- ══════════════════════════════════════════ -->
-
-        <!-- SLIDE 2: Nombre PYME -->
-        <section class="slide" data-section="2" data-slide="2">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">02 — 1/8</div>
-              <h2 class="slide-title">Nombre de la PYME</h2>
-              <p class="slide-subtitle">Identificación formal del negocio.</p>
-            </div>
-            <div class="slide-content">
               <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">🏪 Nombre Comercial</div><div class="info-card-value">Almacén Lukas</div></div>
-                <div class="info-card"><div class="info-card-label">👤 Propietario</div><div class="info-card-value">Claudio Caballero</div></div>
-                <div class="info-card"><div class="info-card-label">🏢 Tipo de Empresa</div><div class="info-card-value">Pequeña Empresa (PYME)</div></div>
-                <div class="info-card"><div class="info-card-label">📅 Año de Fundación</div><div class="info-card-value">2015</div></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SLIDE 3: Dirección -->
-        <section class="slide" data-section="2" data-slide="3">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">02 — 2/8</div>
-              <h2 class="slide-title">Dirección</h2>
-              <p class="slide-subtitle">Ubicación geográfica del almacén.</p>
-            </div>
-            <div class="slide-content">
-              <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">📍 Dirección</div><div class="info-card-value">Chicago 121</div></div>
-                <div class="info-card"><div class="info-card-label">🗺️ Comuna</div><div class="info-card-value">Lo Prado</div></div>
-                <div class="info-card"><div class="info-card-label">🏙️ Ciudad</div><div class="info-card-value">Santiago</div></div>
-                <div class="info-card"><div class="info-card-label">📋 Región</div><div class="info-card-value">Región Metropolitana</div></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SLIDE 4: Rubro -->
-        <section class="slide" data-section="2" data-slide="4">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">02 — 3/8</div>
-              <h2 class="slide-title">Rubro</h2>
-              <p class="slide-subtitle">Sector industrial y área de especialización.</p>
-            </div>
-            <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">El almacén se encuentra en el sector de <strong>comercio minorista</strong>, específicamente en la venta de abarrotes y productos de limpieza para el hogar.</p>
-              </div>
-              <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">🏪 Sector</div><div class="info-card-value">Comercio Minorista</div></div>
-                <div class="info-card"><div class="info-card-label">📦 Subsector</div><div class="info-card-value">Almacén de Abarrotes</div></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SLIDE 5: Productos y Servicios -->
-        <section class="slide" data-section="2" data-slide="5">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">02 — 4/8</div>
-              <h2 class="slide-title">Producto y/o Servicio</h2>
-              <p class="slide-subtitle">Oferta principal del almacén.</p>
-            </div>
-            <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">El almacén ofrece venta de <strong>abarrotes</strong> y <strong>productos de limpieza</strong> para el hogar. Se atiende en local, a través de pedidos por WhatsApp y mediante el servicio de crédito vecinal.</p>
-              </div>
-              <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">🍞 Producto</div><div class="info-card-value">Abarrotes</div></div>
-                <div class="info-card"><div class="info-card-label">🧴 Producto</div><div class="info-card-value">Productos de Limpieza</div></div>
+                <div class="info-card"><div class="info-card-label">🏪 Empresa</div><div class="info-card-value">Almacén Lukas</div></div>
+                <div class="info-card"><div class="info-card-label">👤 Cliente / Dueño</div><div class="info-card-value">Claudio Caballero</div></div>
+                <div class="info-card"><div class="info-card-label">📍 Ubicación</div><div class="info-card-value">Lo Prado, RM</div></div>
                 <div class="info-card"><div class="info-card-label">💰 Servicio Clave</div><div class="info-card-value">Crédito Vecinal</div></div>
-                <div class="info-card"><div class="info-card-label">💬 Canal</div><div class="info-card-value">Pedidos por WhatsApp</div></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 6: Historia -->
-        <section class="slide" data-section="2" data-slide="6">
+        <section class="slide" data-section="1" data-slide="2">
           <div class="slide-content-wrapper">
             <div class="slide-header">
-              <div class="slide-number">02 — 5/8</div>
-              <h2 class="slide-title">Historia</h2>
-              <p class="slide-subtitle">Origen y evolución del almacén.</p>
-            </div>
-            <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text"><strong>Almacén Lukas</strong> fue fundado en <strong>2015</strong> como un negocio familiar para servir a la comunidad de Lo Prado. En más de una década ha construido relaciones de confianza con sus vecinos, ofreciendo atención personalizada y crédito a quienes lo necesitan.</p>
-              </div>
-              <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">📅 Fundación</div><div class="info-card-value">2015</div></div>
-                <div class="info-card"><div class="info-card-label">⏱️ Trayectoria</div><div class="info-card-value">+10 años</div></div>
-                <div class="info-card"><div class="info-card-label">👨‍👩‍👧‍👦 Operación</div><div class="info-card-value">Familiar</div></div>
-                <div class="info-card"><div class="info-card-label">🗺️ Cobertura</div><div class="info-card-value">Local y Vecinal</div></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SLIDE 7: Dueño -->
-        <section class="slide" data-section="2" data-slide="7">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">02 — 6/8</div>
-              <h2 class="slide-title">Dueño</h2>
-              <p class="slide-subtitle">Perfil del fundador y administrador del negocio.</p>
-            </div>
-            <div class="slide-content">
-              <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">👤 Nombre</div><div class="info-card-value">Claudio Caballero</div></div>
-                <div class="info-card"><div class="info-card-label">💼 Rol</div><div class="info-card-value">Propietario y Administrador</div></div>
-                <div class="info-card"><div class="info-card-label">🎯 Experiencia</div><div class="info-card-value">+10 años en retail</div></div>
-              </div>
-              <div class="highlight-box">
-                <p><strong>Visión:</strong> Ofrecer a la comunidad un servicio de calidad con atención personalizada y productos de primera necesidad a precios accesibles, modernizando la gestión del negocio para servir mejor.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SLIDE 8: Características -->
-        <section class="slide" data-section="2" data-slide="8">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">02 — 7/8</div>
-              <h2 class="slide-title">Características</h2>
-              <p class="slide-subtitle">Diferenciadores y fortalezas del almacén.</p>
-            </div>
-            <div class="slide-content">
-              <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">🤝 Enfoque</div><div class="info-card-value">Atención Personalizada</div></div>
-                <div class="info-card"><div class="info-card-label">💰 Servicio</div><div class="info-card-value">Crédito Vecinal</div></div>
-                <div class="info-card"><div class="info-card-label">💬 Canal</div><div class="info-card-value">Pedidos por WhatsApp</div></div>
-                <div class="info-card"><div class="info-card-label">⏰ Horario</div><div class="info-card-value">Extendido</div></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SLIDE 9: Competencia -->
-        <section class="slide" data-section="2" data-slide="9">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">02 — 8/8</div>
-              <h2 class="slide-title">Competencia</h2>
-              <p class="slide-subtitle">Análisis del entorno competitivo en la zona.</p>
-            </div>
-            <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">La zona de Lo Prado cuenta con varios <strong>minimarkets</strong> y otros almacenes locales. Almacén Lukas se diferencia por su <strong>crédito vecinal confiable</strong> y la relación directa y familiar con sus clientes regulares.</p>
-              </div>
-              <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">🏪 Competidores</div><div class="info-card-value">Minimarkets</div></div>
-                <div class="info-card"><div class="info-card-label">⭐ Diferenciador</div><div class="info-card-value">Crédito Vecinal</div></div>
-                <div class="info-card"><div class="info-card-label">❤️ Ventaja</div><div class="info-card-value">Relación Familiar</div></div>
-                <div class="info-card"><div class="info-card-label">🚀 Oportunidad</div><div class="info-card-value">Digitalización</div></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 10: OBJETIVO DEL PROYECTO           -->
-        <!-- ══════════════════════════════════════════ -->
-        <section class="slide" data-section="3" data-slide="10">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">03</div>
-              <h2 class="slide-title">Objetivo del Proyecto</h2>
-              <p class="slide-subtitle">Meta principal del sistema de gestión.</p>
-            </div>
-            <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text"><strong>Objetivo general:</strong> Desarrollar e implementar un sistema de gestión que libere al propietario de la revisión manual de morosos, automatizando el control del crédito vecinal y centralizando la información del negocio.</p>
-              </div>
-              <div class="highlight-box">
-                <p><strong>🎯 Beneficios esperados:</strong></p>
-                <p style="margin-top:12px;">
-                  • ✅ Eliminación de hojas de notas y apuntes manuales<br>
-                  • 🔍 Búsqueda rápida de clientes con deudas pendientes<br>
-                  • 📊 Historial completo de pagos y créditos por cliente<br>
-                  • 💬 Cobro automatizado vía WhatsApp con un solo clic<br>
-                  • ⏱️ Reducción de al menos un 80% del tiempo mensual dedicado al cobro
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 11: PROCESOS — VISIÓN GENERAL       -->
-        <!-- ══════════════════════════════════════════ -->
-        <section class="slide" data-section="4" data-slide="11">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">04 — 1/4</div>
+              <div class="slide-number">02</div>
               <h2 class="slide-title">Procesos del Almacén</h2>
               <p class="slide-subtitle">El almacén opera con 6 procesos principales. Uno de ellos es el origen del problema.</p>
             </div>
@@ -1100,13 +793,10 @@
           </div>
         </section>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 12: ¿QUÉ ES EL CRÉDITO VECINAL?    -->
-        <!-- ══════════════════════════════════════════ -->
-        <section class="slide" data-section="4" data-slide="12">
+        <section class="slide" data-section="1" data-slide="3">
           <div class="slide-content-wrapper">
             <div class="slide-header">
-              <div class="slide-number">04 — 2/4</div>
+              <div class="slide-number">03</div>
               <h2 class="slide-title">¿Qué es el crédito vecinal?</h2>
               <p class="slide-subtitle">El servicio diferenciador del almacén — y el que genera el problema.</p>
             </div>
@@ -1115,37 +805,34 @@
                 <p class="content-text">El <strong>crédito vecinal</strong> —también conocido como "venta al fiado"— es un sistema de confianza donde un cliente habitual del barrio se lleva productos del almacén <strong>sin pagar en el momento</strong>. El dueño le anota la deuda, y el cliente la paga más adelante, generalmente a fin de mes.</p>
               </div>
               <div class="highlight-box" style="margin-bottom:0;">
-                <p>Es una práctica histórica en los almacenes chilenos. Funciona sobre la <strong>confianza y el conocimiento personal</strong> entre el almacenero y sus vecinos. En Almacén Lukas, este servicio es uno de los principales factores de fidelización de clientes.</p>
+                <p>Es una práctica histórica en los almacenes chilenos. Funciona sobre la <strong>confianza y el conocimiento personal</strong>. En Almacén Lukas, este servicio es el principal factor de fidelización frente a otros minimarkets.</p>
               </div>
               <div class="info-grid" style="margin-top:16px;">
                 <div class="info-card">
                   <div class="info-card-label">🤝 Cómo funciona</div>
-                  <div class="info-card-value small">El vecino lleva productos hoy y los paga cuando pueda, basado en la confianza mutua.</div>
+                  <div class="info-card-value small">El vecino lleva productos hoy y los paga cuando pueda.</div>
                 </div>
                 <div class="info-card">
                   <div class="info-card-label">📅 Cuándo se cobra</div>
-                  <div class="info-card-value small">Generalmente a fin de mes, cuando los clientes reciben su sueldo o pensión.</div>
+                  <div class="info-card-value small">Generalmente a fin de mes (sueldo o pensión).</div>
                 </div>
                 <div class="info-card">
                   <div class="info-card-label">👥 Quiénes acceden</div>
-                  <div class="info-card-value small">Solo clientes conocidos y de confianza del almacén, vecinos habituales.</div>
+                  <div class="info-card-value small">Solo clientes conocidos y de confianza.</div>
                 </div>
                 <div class="info-card">
                   <div class="info-card-label">📝 Cómo se registra hoy</div>
-                  <div class="info-card-value small">En hojas de papel, libretas y apuntes escritos a mano por el propietario.</div>
+                  <div class="info-card-value small">En hojas sueltas, agendas y la memoria del dueño.</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 13: EL PROBLEMA EN DETALLE          -->
-        <!-- ══════════════════════════════════════════ -->
-        <section class="slide" data-section="4" data-slide="13">
+        <section class="slide" data-section="1" data-slide="4">
           <div class="slide-content-wrapper">
             <div class="slide-header">
-              <div class="slide-number">04 — 3/4</div>
+              <div class="slide-number">04</div>
               <h2 class="slide-title">El problema en detalle</h2>
               <p class="slide-subtitle">Lo que ocurre cada fin de mes en el almacén.</p>
             </div>
@@ -1157,41 +844,38 @@
                 <div class="problem-card">
                   <div class="problem-card-icon">📝</div>
                   <div class="problem-card-title">Desorganización en el registro</div>
-                  <div class="problem-card-desc">Las deudas se anotan en hojas sueltas y libretas. No hay un orden claro: no se sabe de inmediato quién debe ni cuánto.</div>
+                  <div class="problem-card-desc">No hay un orden claro: no se sabe de inmediato quién debe ni cuánto, provocando pérdidas.</div>
                 </div>
                 <div class="problem-card">
                   <div class="problem-card-icon">📄</div>
                   <div class="problem-card-title">Pérdida de información</div>
-                  <div class="problem-card-desc">Las hojas de papel se deterioran, extravían o dañan con facilidad. Una hoja perdida significa una deuda que nunca se cobra.</div>
+                  <div class="problem-card-desc">Las hojas de papel se deterioran, extravían o dañan con facilidad.</div>
                 </div>
                 <div class="problem-card">
                   <div class="problem-card-icon">⏰</div>
                   <div class="problem-card-title">Proceso lento y manual</div>
-                  <div class="problem-card-desc">Cada fin de mes el dueño invierte varias horas revisando apuntes uno a uno para armar la lista de personas que deben dinero.</div>
+                  <div class="problem-card-desc">Cada fin de mes el dueño invierte varias horas revisando apuntes uno a uno.</div>
                 </div>
                 <div class="problem-card">
                   <div class="problem-card-icon">👁️</div>
                   <div class="problem-card-title">Sin visibilidad del estado de cuenta</div>
-                  <div class="problem-card-desc">Es imposible saber rápidamente cuánto debe un cliente específico sin revisar todos los papeles desde el principio.</div>
+                  <div class="problem-card-desc">Es imposible saber rápidamente cuánto debe un cliente específico sin revisar todos los papeles.</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 14: ANTES VS. DESPUÉS               -->
-        <!-- ══════════════════════════════════════════ -->
-        <section class="slide" data-section="4" data-slide="14">
+        <section class="slide" data-section="1" data-slide="5">
           <div class="slide-content-wrapper">
             <div class="slide-header">
-              <div class="slide-number">04 — 4/4</div>
+              <div class="slide-number">05</div>
               <h2 class="slide-title">Antes y después del sistema</h2>
               <p class="slide-subtitle">Cómo cambia el proceso de crédito vecinal con la solución propuesta.</p>
             </div>
             <div class="slide-content">
               <div class="comparison-row">
-                <div class="comparison-col before">
+                <div class="comparison-col danger-before">
                   <div class="comparison-label">❌ Hoy — Sin sistema</div>
                   <div class="comparison-item"><span>📝</span><span>El dueño anota la deuda a mano en una hoja o libreta</span></div>
                   <div class="comparison-item"><span>🗂️</span><span>Las hojas se acumulan sin orden durante todo el mes</span></div>
@@ -1201,11 +885,11 @@
                   <div class="comparison-item"><span>⏰</span><span>Horas perdidas en un proceso que debería tomar minutos</span></div>
                 </div>
                 <div class="comparison-col after">
-                  <div class="comparison-label">✅ Con el sistema</div>
-                  <div class="comparison-item"><span>📱</span><span>El dueño registra el crédito en segundos</span></div>
+                  <div class="comparison-label">✅ Con el sistema Local</div>
+                  <div class="comparison-item"><span>🖥️</span><span>El dueño registra el crédito en segundos en su PC</span></div>
                   <div class="comparison-item"><span>💾</span><span>El sistema guarda todo automáticamente con fecha y monto</span></div>
                   <div class="comparison-item"><span>⚡</span><span>Con un clic ve la lista de morosos actualizada al instante</span></div>
-                  <div class="comparison-item"><span>🤖</span><span>El sistema genera el mensaje de cobro listo para WhatsApp</span></div>
+                  <div class="comparison-item"><span>🤖</span><span>El sistema genera la información exacta para el cobro</span></div>
                   <div class="comparison-item"><span>📊</span><span>Historial completo de cada cliente: deudas y pagos</span></div>
                   <div class="comparison-item"><span>🎯</span><span>El fin de mes pasa de horas de trabajo a minutos</span></div>
                 </div>
@@ -1214,136 +898,313 @@
           </div>
         </section>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 15: RESUMEN ACTA DE CONSTITUCIÓN    -->
-        <!-- ══════════════════════════════════════════ -->
-        <section class="slide" data-section="5" data-slide="15">
+        <section class="slide" data-section="2" data-slide="6">
           <div class="slide-content-wrapper">
             <div class="slide-header">
-              <div class="slide-number">05</div>
-              <h2 class="slide-title">Acta de Constitución</h2>
-              <p class="slide-subtitle">Resumen del contrato formal que da inicio al proyecto.</p>
+              <div class="slide-number">06</div>
+              <h2 class="slide-title">Objetivo General</h2>
+              <p class="slide-subtitle">La meta principal que define el éxito del proyecto.</p>
             </div>
             <div class="slide-content">
-              <div class="acta-grid">
+              <div class="content-block">
+                <p class="content-text">El propósito central del equipo de desarrollo se resume en una única meta concreta, enfocada en solucionar el cuello de botella del almacén:</p>
+              </div>
+              <div class="highlight-box" style="padding: 40px; border-left-width: 5px;">
+                <p style="font-size: 20px; line-height: 1.6; color: var(--text-primary); text-align: center;">
+                  "Desarrollar e implementar un sistema informático de gestión de morosos para el almacén Lukas en un plazo de un semestre académico, con el fin de <strong>reducir el tiempo dedicado al registro y cobro de los pedidos fiados en al menos un 80%</strong>."
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                <!-- Equipo -->
-                <div class="acta-block">
-                  <div class="acta-block-title">👥 Equipo de Desarrollo</div>
-                  <div class="acta-team-row">
-                    <span class="acta-team-badge jefe">JP</span>
-                    <div>
-                      <div class="acta-team-name">Cristian Salazar</div>
-                      <div class="acta-team-role">Jefe de Proyecto</div>
-                    </div>
+        <section class="slide" data-section="2" data-slide="7">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">07</div>
+              <h2 class="slide-title">Objetivos Específicos</h2>
+              <p class="slide-subtitle">Los pasos cuantificables y medibles para alcanzar la meta general.</p>
+            </div>
+            <div class="slide-content">
+              <div class="acta-grid" style="grid-template-columns: 1fr;">
+                
+                <div class="acta-block" style="padding: 20px 24px;">
+                  <div class="acta-item" style="margin-bottom: 12px; font-size: 15px;">
+                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
+                    <span><strong>1. Identificar</strong> los procesos actuales de gestión de crédito y los puntos críticos de pérdida de información mediante entrevistas de licitación con el cliente.</span>
                   </div>
-                  <div class="acta-team-row">
-                    <span class="acta-team-badge" style="background:rgba(0,200,255,0.1);color:#00c8ff;border:1px solid rgba(0,200,255,0.2);">AN</span>
-                    <div>
-                      <div class="acta-team-name">Lukas Caballero</div>
-                      <div class="acta-team-role">Analista de Negocio</div>
-                    </div>
+                  <div class="acta-item" style="margin-bottom: 12px; font-size: 15px;">
+                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
+                    <span><strong>2. Modelar</strong> el flujo de procesos utilizando la notación BPMN para estandarizar el registro y cobro de deudas.</span>
                   </div>
-                  <div class="acta-team-row">
-                    <span class="acta-team-badge" style="background:rgba(180,100,255,0.1);color:#c06aff;border:1px solid rgba(180,100,255,0.2);">AR</span>
-                    <div>
-                      <div class="acta-team-name">Felipe Oria</div>
-                      <div class="acta-team-role">Analista de Requisitos</div>
-                    </div>
+                  <div class="acta-item" style="margin-bottom: 12px; font-size: 15px;">
+                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
+                    <span><strong>3. Estructurar</strong> una matriz de requisitos funcionales y no funcionales que garantice la seguridad, portabilidad y usabilidad del sistema.</span>
                   </div>
-                  <div class="acta-team-row">
-                    <span class="acta-team-badge" style="background:rgba(255,170,0,0.1);color:#ffaa00;border:1px solid rgba(255,170,0,0.2);">DS</span>
-                    <div>
-                      <div class="acta-team-name">Benjamin Acuña</div>
-                      <div class="acta-team-role">Diseñador de Sistemas</div>
-                    </div>
+                  <div class="acta-item" style="margin-bottom: 12px; font-size: 15px;">
+                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
+                    <span><strong>4. Desarrollar</strong> el sistema de gestión utilizando el stack tecnológico propuesto, integrando los módulos de clientes, créditos y pagos.</span>
                   </div>
-                </div>
-
-                <!-- Información general -->
-                <div class="acta-block">
-                  <div class="acta-block-title">📋 Información General</div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Proyecto:</strong> Sistema de Gestión Almacén Lukas</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Cliente:</strong> Almacén Lukas — Sr. Claudio Caballero</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Profesor:</strong> Jorge Esteban Cornejo Elgueta</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Asignatura:</strong> Sistemas de Información</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong style="color:var(--text-primary);">Costo:</strong> Sin costo monetario (proyecto académico)</span></div>
-                </div>
-
-                <!-- Objetivos -->
-                <div class="acta-block">
-                  <div class="acta-block-title">🎯 Objetivos del Proyecto</div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Desarrollar un sistema de gestión del crédito vecinal en tiempo real</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Módulo de clientes con historial de deudas y pagos</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Módulo de notificaciones: mensajes de cobro automáticos para WhatsApp</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Módulo de inventario básico (abarrotes y limpieza)</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Reducir en al menos un <strong style="color:var(--accent);">80%</strong> el tiempo de cobro mensual</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Capacitar al propietario antes de la entrega final</span></div>
-                </div>
-
-                <!-- Cronograma -->
-                <div class="acta-block">
-                  <div class="acta-block-title">📅 Cronograma de Hitos</div>
-                  <div class="hito-row"><span class="hito-date">Abril 2026</span><span class="hito-desc">Firma del acta y Entrega Evaluación 1</span></div>
-                  <div class="hito-row"><span class="hito-date">Mayo 2026</span><span class="hito-desc">Diseño BD, interfaces e inicio del desarrollo</span></div>
-                  <div class="hito-row"><span class="hito-date">Mayo 2026</span><span class="hito-desc">Desarrollo módulo notificaciones e inventario</span></div>
-                  <div class="hito-row"><span class="hito-date">Fin Mayo 2026</span><span class="hito-desc">Integración de módulos y pruebas</span></div>
-                  <div class="hito-row"><span class="hito-date">1ª sem. Junio</span><span class="hito-desc">Capacitación y entrega final del sistema</span></div>
+                  <div class="acta-item" style="font-size: 15px;">
+                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
+                    <span><strong>5. Validar</strong> el funcionamiento del sistema y la precisión de los datos mediante pruebas de usuario y capacitación <em>in situ</em> al propietario.</span>
+                  </div>
                 </div>
 
               </div>
+            </div>
+          </div>
+        </section>
 
-              <!-- Restricciones y riesgos clave -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;">
+        <section class="slide" data-section="3" data-slide="8">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">08</div>
+              <h2 class="slide-title">Ingeniería de Requisitos</h2>
+              <p class="slide-subtitle">Metodología aplicada para el levantamiento de información.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">El proceso de desarrollo sigue los lineamientos del <strong>Ciclo de Vida de Desarrollo de Software (CVDS)</strong> y aplica los principios definidos por Sommerville (2011).</p>
+              </div>
+              <div class="highlight-box">
+                <p><em>"Los requisitos son la base sobre la cual se construye todo sistema de software exitoso. El análisis no es un proceso aislado, sino un esfuerzo continuo de comprensión, validación y negociación con los stakeholders."</em> <br><span style="font-size: 12px; color: var(--text-muted);">— Sommerville, 2011</span></p>
+              </div>
+              <div class="content-block">
+                <p class="content-text">Para esto, el equipo llevó a cabo un proceso de <strong>elicitación de requisitos</strong> mediante entrevistas estructuradas con el Sr. Claudio Caballero, permitiendo comprender en profundidad la operación y establecer qué debe hacer el sistema (Funcionales) y cómo debe hacerlo (No Funcionales).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-section="3" data-slide="9">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">09</div>
+              <h2 class="slide-title">Requisitos Funcionales</h2>
+              <p class="slide-subtitle">Funciones específicas que el sistema debe ser capaz de ejecutar, ordenados lógicamente.</p>
+            </div>
+            <div class="slide-content">
+              <div class="acta-grid">
+                
                 <div class="acta-block">
-                  <div class="acta-block-title" style="color:var(--accent-amber);">⚠️ Restricciones Clave</div>
-                  <div class="acta-item"><div class="acta-item-dot amber"></div><span>Solo herramientas gratuitas / open-source</span></div>
-                  <div class="acta-item"><div class="acta-item-dot amber"></div><span>Sistema exclusivo para Almacén Lukas</span></div>
-                  <div class="acta-item"><div class="acta-item-dot amber"></div><span>Sin integración bancaria ni pagos en línea</span></div>
-                  <div class="acta-item"><div class="acta-item-dot amber"></div><span>Plazo condicionado al calendario académico</span></div>
+                  <div class="acta-block-title" style="color:var(--text-primary);">R.1 - Registrar Cliente</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Actor:</strong> Propietario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Permite registrar clientes con nombre, RUT, teléfono y dirección.</span></div>
                 </div>
+
                 <div class="acta-block">
-                  <div class="acta-block-title" style="color:var(--accent-red);">🔴 Riesgos Identificados</div>
-                  <div class="acta-item"><div class="acta-item-dot red"></div><span>Disponibilidad del cliente para reuniones</span></div>
-                  <div class="acta-item"><div class="acta-item-dot red"></div><span>Scope creep fuera del calendario</span></div>
-                  <div class="acta-item"><div class="acta-item-dot red"></div><span>Migración incompleta de datos en papel</span></div>
-                  <div class="acta-item"><div class="acta-item-dot red"></div><span>Resistencia al cambio del propietario</span></div>
+                  <div class="acta-block-title" style="color:var(--text-primary);">R.2 - Gestionar Crédito Vecinal</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Actor:</strong> Propietario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Registro de ventas a crédito con productos y fecha; actualización automática del saldo.</span></div>
+                </div>
+
+                <div class="acta-block">
+                  <div class="acta-block-title" style="color:var(--text-primary);">R.3 - Registrar Pago de Deuda</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Actor:</strong> Propietario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Permite ingresar abonos parciales o totales, actualizando el saldo y el historial.</span></div>
+                </div>
+
+                <div class="acta-block">
+                  <div class="acta-block-title" style="color:var(--text-primary);">R.4 - Listar Clientes Morosos</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Actor:</strong> Propietario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Genera listado actualizado de clientes con deuda mayor a $0, indicando saldo.</span></div>
+                </div>
+
+              </div>
+              <p class="content-text" style="font-size: 13px; margin-top: 16px; text-align: center;"><em>* Todos los requisitos se encuentran en estado APROBADO.</em></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-section="3" data-slide="10">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">10</div>
+              <h2 class="slide-title">Requisitos No Funcionales</h2>
+              <p class="slide-subtitle">Atributos de calidad y restricciones tecnológicas para el contexto del Almacén.</p>
+            </div>
+            <div class="slide-content">
+              <div class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                
+                <div class="info-card">
+                  <div class="info-card-label">🔒 RNF.1 - Seguridad</div>
+                  <div class="info-card-value small"><strong>Autenticación:</strong> Acceso mediante usuario/contraseña encriptada. Bloqueo tras 3 intentos.</div>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-card-label">⚡ RNF.2 - Rendimiento</div>
+                  <div class="info-card-value small"><strong>Tiempo de respuesta:</strong> Consultas &lt; 2 s; carga inicial &lt; 5 s; listado de morosos &lt; 3 s.</div>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-card-label">🖥️ RNF.3 - Usabilidad</div>
+                  <div class="info-card-value small"><strong>Interfaz de Escritorio:</strong> Sistema optimizado para uso en el computador del local (PC) con teclado y mouse, garantizando agilidad.</div>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-card-label">💾 RNF.4 - Confiabilidad</div>
+                  <div class="info-card-value small"><strong>Respaldo de datos:</strong> Exportación manual de backup (CSV/JSON) con fecha y hora visible para seguridad ante fallos del hardware.</div>
+                </div>
+
+                <div class="info-card" style="grid-column: 1 / -1; text-align: center;">
+                  <div class="info-card-label">📂 RNF.5 - Ejecución Local</div>
+                  <div class="info-card-value small"><strong>Arquitectura Local:</strong> Sistema standalone que se ejecuta íntegramente en el PC del cliente. Costo cero de hosting y operación sin dependencia de conexión a internet.</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-section="4" data-slide="11">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">11</div>
+              <h2 class="slide-title">Análisis: El Modelo Esencial</h2>
+              <p class="slide-subtitle">La lógica pura del negocio sin limitaciones tecnológicas actuales.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">El modelo esencial busca capturar las políticas de negocio ignorando cómo se hacen físicamente hoy. Para el Almacén Lukas, <strong>la esencia radica en gestionar el crédito vecinal de manera precisa</strong>.</p>
+              </div>
+              <div class="highlight-box">
+                <p>El comportamiento fundamental requerido por el sistema es:</p>
+                <p style="margin-top: 10px;">
+                  1. <strong>Registrar la deuda en el instante exacto</strong> en que el cliente solicita los productos.<br>
+                  2. <strong>Mantener un cálculo matemático exacto</strong> del saldo adeudado.<br>
+                  3. <strong>Eliminar la dependencia</strong> de la memoria humana y de los registros físicos (libretas).
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-section="4" data-slide="12">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">12</div>
+              <h2 class="slide-title">Análisis de Flujo y Fronteras</h2>
+              <p class="slide-subtitle">¿Qué automatizará el sistema y qué seguirá haciendo el dueño?</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">El análisis BPMN evidenció que el cuello de botella (AS-IS) ocurre a fin de mes por la revisión manual de papeles. El sistema se centrará en eliminar este bloqueo definiendo fronteras claras.</p>
+              </div>
+              <div class="comparison-row">
+                <div class="comparison-col after">
+                  <div class="comparison-label">🤖 Dentro del Sistema (Automatizado)</div>
+                  <div class="comparison-item"><span>•</span><span>Registro centralizado y seguro de clientes (R.1)</span></div>
+                  <div class="comparison-item"><span>•</span><span>Cálculo automático de saldos y créditos (R.2 y R.3)</span></div>
+                  <div class="comparison-item"><span>•</span><span>Generación instantánea de lista de morosos (R.4)</span></div>
+                </div>
+                <div class="comparison-col before">
+                  <div class="comparison-label">👤 Fuera del Sistema (Labor Manual)</div>
+                  <div class="comparison-item"><span>•</span><span><strong>El Cobro vía WhatsApp:</strong> El sistema provee la información precisa, pero la acción de contactar al cliente desde su dispositivo la mantendrá el propietario.</span></div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- SLIDE 16: DESPEDIDA                       -->
-        <!-- ══════════════════════════════════════════ -->
-        <section class="slide slide--final" data-section="6" data-slide="16">
+        <section class="slide" data-section="4" data-slide="13">
           <div class="slide-content-wrapper">
-            <h2 class="final-message">¡Gracias!</h2>
-            <p class="final-sub">En Almacén Lukas buscamos modernizar la gestión y mejorar la experiencia tanto para el negocio como para sus clientes. Con este sistema, el crédito vecinal deja de ser un dolor de cabeza y pasa a ser una ventaja competitiva real.</p>
-            <div class="highlight-box" style="margin-top:24px;text-align:left;max-width:520px;">
-              <p><strong>✨ Propuesta de valor:</strong></p>
+            <div class="slide-header">
+              <div class="slide-number">13</div>
+              <h2 class="slide-title">Modelo de Implantación</h2>
+              <p class="slide-subtitle">Adaptando la lógica a la realidad física del mostrador del almacén.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">Una vez definida la lógica (Modelo Esencial), esta debe aterrizar en la realidad tecnológica y ambiental del punto de venta, lo que dictó los Requisitos No Funcionales para un entorno de escritorio.</p>
+              </div>
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">🖥️ Dispositivo Físico</div>
+                  <div class="info-card-value small">El dueño operará desde el computador (PC) ubicado en el mostrador. <strong>Requiere una interfaz de escritorio clara y atajos de teclado para un registro rápido.</strong></div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">⏱️ Entorno Dinámico</div>
+                  <div class="info-card-value small">Hay fila de clientes. <strong>Consultas menores a 2 segundos</strong> para no entorpecer la atención presencial de la tienda.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">🔌 Mitigación de Riesgos</div>
+                  <div class="info-card-value small">Para asegurar la operación continua incluso sin internet, <strong>la ejecución será 100% local, con exportaciones manuales de base de datos.</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-section="5" data-slide="14">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">14</div>
+              <h2 class="slide-title">Conclusiones</h2>
+              <p class="slide-subtitle">Cierre de la fase de Análisis y Levantamiento de Requisitos.</p>
+            </div>
+            <div class="slide-content">
+              <div class="content-block">
+                <p class="content-text">La primera etapa formal del ciclo de vida de desarrollo ha culminado exitosamente. A través de la elicitación, se tradujo la problemática del registro manual en una arquitectura lógica eficiente.</p>
+              </div>
+              <div class="highlight-box">
+                <p><strong>Resultados clave:</strong></p>
+                <p style="margin-top: 10px;">
+                  • <strong>9 Requisitos validados:</strong> 4 funcionales núcleo (clientes, crédito, pagos, listados) y 5 no funcionales orientados a una ejecución de escritorio segura y rápida.<br>
+                  • <strong>Trazabilidad:</strong> Cada requisito funcional responde directamente a mitigar un punto crítico del flujo BPMN.<br>
+                  • <strong>Viabilidad Económica:</strong> La decisión de una arquitectura local garantiza cero costos operativos (hosting) y evita dependencias de conexión a internet para el dueño del local.
+                </p>
+              </div>
+              <div class="content-block">
+                <p class="content-text">El proyecto cuenta con una base sólida para avanzar hacia las fases de diseño de bases de datos, interfaces y desarrollo en las evaluaciones subsiguientes.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-section="5" data-slide="15">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">15</div>
+              <h2 class="slide-title">Referencias Bibliográficas</h2>
+              <p class="slide-subtitle">Marco teórico y metodológico utilizado (Normas APA 7ª edición).</p>
+            </div>
+            <div class="slide-content">
+              <div class="acta-block" style="margin-top: 20px;">
+                <div class="acta-item"><div class="acta-item-dot"></div><span>Sommerville, I. (2011). <em>Ingeniería del software</em> (9.ª ed.). Pearson Educación.</span></div>
+                <div class="acta-item" style="margin-top: 14px;"><div class="acta-item-dot"></div><span>Pressman, R. S. (2010). <em>Ingeniería del software: Un enfoque práctico</em> (7.ª ed.). McGraw-Hill.</span></div>
+                <div class="acta-item" style="margin-top: 14px;"><div class="acta-item-dot"></div><span>Brooks, F. P. (1987). No silver bullet: Essence and accidents of software engineering. <em>IEEE Computer</em>, 20(4), 10–19.</span></div>
+                <div class="acta-item" style="margin-top: 14px;"><div class="acta-item-dot"></div><span>IEEE/ANSI 830-1998. (1998). <em>IEEE Recommended Practice for Software Requirements Specifications</em>.</span></div>
+                <div class="acta-item" style="margin-top: 14px;"><div class="acta-item-dot"></div><span>Caballero, C. (2026, abril). <em>[Entrevistas de levantamiento de requisitos]</em>. Almacén Lukas, Lo Prado, Santiago.</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide slide--final" data-section="5" data-slide="16">
+          <div class="slide-content-wrapper">
+            <h2 class="final-message">¡Fin de la Presentación!</h2>
+            <p class="final-sub">En Almacén Lukas buscamos modernizar la gestión con base en una ingeniería de requisitos sólida, asegurando que la tecnología se adapte al negocio local y no al revés.</p>
+            <div class="highlight-box" style="margin-top:24px;text-align:left;max-width:520px; display: inline-block;">
+              <p><strong>Siguientes Pasos (Fase 2):</strong></p>
               <p style="margin-top:8px;">
-                • 💰 Control eficiente del crédito vecinal<br>
-                • 🗂️ Gestión centralizada de clientes y deudas<br>
-                • ⚡ Cobro automático con mensaje de WhatsApp listo para enviar
+                • Diseño de Base de Datos Local<br>
+                • Prototipado de Interfaces de Escritorio (UI/UX)<br>
+                • Inicio del Desarrollo de la Aplicación Local
               </p>
             </div>
             <p class="final-sub" style="margin-top:24px;">Estamos abiertos a preguntas y comentarios.</p>
             <div class="contact-info">
               <div class="contact-item">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                Cristian Salazar · Lukas Caballero · Felipe Oria · Benjamin Acuña
+                C. Salazar · L. Caballero · F. Oria · B. Acuña · S. Aros
               </div>
             </div>
           </div>
         </section>
 
       </div>
-    </div><!-- /slides-wrapper -->
-
-    <!-- NAVEGACIÓN -->
-    <div class="slide-nav">
+    </div><div class="slide-nav">
       <button class="slide-nav-btn" id="navPrev">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
@@ -1352,42 +1213,44 @@
       </button>
     </div>
 
-    <!-- CONTADOR -->
     <div class="slide-counter">
       <span id="currentSlideNum">1</span> / <span id="totalSlides">17</span>
     </div>
 
-  </div><!-- /presentation -->
-
-  <script>
+  </div><script>
     const slideData = [
       { sectionId: 0, title: 'Proyecto',   slides: [{ id: 0,  title: 'Portada' }] },
-      { sectionId: 1, title: 'Intro',      slides: [{ id: 1,  title: 'Introducción' }] },
-      { sectionId: 2, title: 'Antecedentes', slides: [
-        { id: 2,  title: 'Nombre PYME' },
-        { id: 3,  title: 'Dirección' },
-        { id: 4,  title: 'Rubro' },
-        { id: 5,  title: 'Productos' },
-        { id: 6,  title: 'Historia' },
-        { id: 7,  title: 'Dueño' },
-        { id: 8,  title: 'Características' },
-        { id: 9,  title: 'Competencia' },
+      { sectionId: 1, title: 'Contexto',   slides: [
+        { id: 1,  title: 'Antecedentes' },
+        { id: 2,  title: 'Procesos' },
+        { id: 3,  title: '¿Qué es el Crédito?' },
+        { id: 4,  title: 'El Problema' },
+        { id: 5,  title: 'Antes y Después' }
       ]},
-      { sectionId: 3, title: 'Objetivo',   slides: [{ id: 10, title: 'Objetivo del Proyecto' }] },
-      { sectionId: 4, title: 'Procesos',   slides: [
-        { id: 11, title: 'Procesos del Almacén' },
-        { id: 12, title: '¿Qué es el Crédito Vecinal?' },
-        { id: 13, title: 'El Problema en Detalle' },
-        { id: 14, title: 'Antes y Después' },
+      { sectionId: 2, title: 'Objetivos',  slides: [
+        { id: 6,  title: 'Objetivo General' },
+        { id: 7,  title: 'Obj. Específicos' }
       ]},
-      { sectionId: 5, title: 'Acta',       slides: [{ id: 15, title: 'Acta de Constitución' }] },
-      { sectionId: 6, title: 'Cierre',     slides: [{ id: 16, title: 'Despedida' }] },
+      { sectionId: 3, title: 'Requisitos', slides: [
+        { id: 8,  title: 'Metodología' },
+        { id: 9,  title: 'R. Funcionales' },
+        { id: 10, title: 'R. No Funcionales' }
+      ]},
+      { sectionId: 4, title: 'Análisis',   slides: [
+        { id: 11, title: 'Modelo Esencial' },
+        { id: 12, title: 'Frontera y Flujo' },
+        { id: 13, title: 'Implantación' }
+      ]},
+      { sectionId: 5, title: 'Cierre',     slides: [
+        { id: 14, title: 'Conclusiones' },
+        { id: 15, title: 'Referencias' },
+        { id: 16, title: 'Despedida' }
+      ]},
     ];
 
     const TOTAL = 17;
     let current = 0;
     const track   = document.getElementById('slidesTrack');
-    const slides  = document.querySelectorAll('.slide');
 
     function init() {
       renderSidebar();
