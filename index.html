@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presentación — Sistema de Gestión Almacén Lukas (Eval. 1)</title>
+  <title>Presentación — Sistema de Gestión Almacén Lukas (Eval. 2)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -682,12 +682,20 @@
 
         <section class="slide slide--hero" data-section="0" data-slide="0">
           <div class="slide-content-wrapper">
-            <div class="hero-badge">📋 Evaluación N° 1 — Sistemas de Información</div>
+            <div class="hero-badge">📋 Evaluación N° 2 — Sistemas de Información</div>
             <h1 class="hero-title">Sistema de Gestión<br>Almacén Lukas</h1>
-            <p class="hero-subtitle">Análisis, Levantamiento de Requisitos y Planificación para digitalizar la gestión del crédito vecinal.</p>
+            <p class="hero-subtitle">Propuesta de Solución, Factibilidad, Diseño y Prototipo para la gestión digital del crédito vecinal.</p>
             <div style="margin-top: 20px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); justify-content: center;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
               Profesor: Jorge Esteban Cornejo Elgueta
+            </div>
+            <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              Cliente: Almacén Lukas — Sr. Claudio Caballero
+            </div>
+            <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Junio 2026
             </div>
             <div style="margin-top: 24px; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
               <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
@@ -718,479 +726,534 @@
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">01</div>
-              <h2 class="slide-title">Antecedentes del Negocio</h2>
-              <p class="slide-subtitle">Resumen de la empresa y su operación comercial (Presentado anteriormente).</p>
+              <h2 class="slide-title">Introducción</h2>
+              <p class="slide-subtitle">Segunda entrega formal del proyecto de desarrollo del SGC-Lukas.</p>
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">
-                  <strong>Almacén Lukas</strong> es un negocio familiar minorista fundado en el año 2015, ubicado en la comuna de Lo Prado. Su propietario, el Sr. Claudio Caballero, atiende a la comunidad vecinal ofreciendo abarrotes y productos de limpieza.
-                </p>
+                <p class="content-text">Este informe avanza hacia las etapas de <strong>diseño, planificación y validación</strong> de la solución, construyendo sobre el levantamiento y análisis de requisitos de la Evaluación N°1.</p>
               </div>
               <div class="info-grid">
-                <div class="info-card"><div class="info-card-label">🏪 Empresa</div><div class="info-card-value">Almacén Lukas</div></div>
-                <div class="info-card"><div class="info-card-label">👤 Cliente / Dueño</div><div class="info-card-value">Claudio Caballero</div></div>
-                <div class="info-card"><div class="info-card-label">📍 Ubicación</div><div class="info-card-value">Lo Prado, RM</div></div>
-                <div class="info-card"><div class="info-card-label">💰 Servicio Clave</div><div class="info-card-value">Crédito Vecinal</div></div>
+                <div class="info-card">
+                  <div class="info-card-label">🎯 Propósito</div>
+                  <div class="info-card-value small">Definir la propuesta de solución tecnológica, estudiar su factibilidad y presentar el diseño del sistema.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">📋 Alcance</div>
+                  <div class="info-card-value small">Propuesta de solución, estudios de factibilidad, análisis costo-beneficio, diagramas UML y prototipo de interfaz.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">👤 Cliente</div>
+                  <div class="info-card-value small">Almacén Lukas — Sr. Claudio Caballero. Pequeño comercio minorista en Lo Prado, Santiago.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">🔍 Problema Base</div>
+                  <div class="info-card-value small">Gestión manual del crédito vecinal: libretas físicas, pérdida de información y cobro mensual lento.</div>
+                </div>
+              </div>
+              <div class="content-block" style="margin-top: 16px;">
+                <p class="content-text">El desarrollo sigue los lineamientos del <strong>Ciclo de Vida de Desarrollo de Software (CVDS)</strong>, integrando los principios de Sommerville (2011) y Pressman (2010).</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="1" data-slide="2">
+        <section class="slide" data-section="2" data-slide="2">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">02</div>
-              <h2 class="slide-title">Procesos del Almacén</h2>
-              <p class="slide-subtitle">El almacén opera con 6 procesos principales. Uno de ellos es el origen del problema.</p>
+              <h2 class="slide-title">Historias de Usuario</h2>
+              <p class="slide-subtitle">Funcionalidades requeridas desde la perspectiva del propietario.</p>
             </div>
             <div class="slide-content">
-              <div class="process-flow">
-                <div class="process-step">
-                  <div class="step-icon">🛒</div>
-                  <div class="step-body">
-                    <div class="step-title">1 · Compra a proveedores</div>
-                    <div class="step-desc">Adquisición de abarrotes y productos de limpieza a distribuidores y mayoristas.</div>
-                  </div>
+              <div class="acta-grid">
+                <div class="acta-block">
+                  <div class="acta-block-title">UH1 - Registrar Cliente (R.1)</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Yo como</strong> Propietario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Necesito</strong> Registrar clientes con nombre, RUT, teléfono y dirección</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Para</strong> Mantener la información organizada y evitar pérdida de datos</span></div>
+                  <div class="acta-item" style="margin-top:8px;"><div class="acta-item-dot" style="background:var(--accent-amber);"></div><span><strong>Criterio:</strong> CRUD completo sobre registro de clientes.</span></div>
                 </div>
-                <div class="process-step">
-                  <div class="step-icon">📦</div>
-                  <div class="step-body">
-                    <div class="step-title">2 · Recepción e inventario</div>
-                    <div class="step-desc">Recepción de mercadería, almacenamiento y control de stock disponible.</div>
-                  </div>
-                </div>
-                <div class="process-step">
-                  <div class="step-icon">🏪</div>
-                  <div class="step-body">
-                    <div class="step-title">3 · Venta retail</div>
-                    <div class="step-desc">Atención directa al cliente en el local, venta al contado.</div>
-                  </div>
-                </div>
-                <div class="process-step highlight-step">
-                  <div class="step-icon">💰</div>
-                  <div class="step-body">
-                    <div class="step-title">4 · Crédito vecinal ← AQUÍ ESTÁ EL PROBLEMA</div>
-                    <div class="step-desc">Venta fiada a clientes de confianza. Se registra manualmente en hojas de notas.</div>
-                  </div>
-                </div>
-                <div class="process-step">
-                  <div class="step-icon">💬</div>
-                  <div class="step-body">
-                    <div class="step-title">5 · Pedidos por WhatsApp</div>
-                    <div class="step-desc">Toma de pedidos a distancia para entrega o retiro en el local.</div>
-                  </div>
-                </div>
-                <div class="process-step">
-                  <div class="step-icon">💵</div>
-                  <div class="step-body">
-                    <div class="step-title">6 · Control de caja</div>
-                    <div class="step-desc">Gestión de pagos recibidos y conciliación diaria del efectivo.</div>
-                  </div>
+                <div class="acta-block">
+                  <div class="acta-block-title">UH2 - Gestionar Crédito Vecinal (R.2)</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Yo como</strong> Propietario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Necesito</strong> Registrar ventas a crédito con monto, productos y fecha</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Para</strong> Eliminar la dependencia de la memoria y asegurar deudas correctamente anotadas</span></div>
+                  <div class="acta-item" style="margin-top:8px;"><div class="acta-item-dot" style="background:var(--accent-amber);"></div><span><strong>Criterio:</strong> Actualización automática del saldo del cliente.</span></div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="1" data-slide="3">
+        <section class="slide" data-section="2" data-slide="3">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">03</div>
-              <h2 class="slide-title">¿Qué es el crédito vecinal?</h2>
-              <p class="slide-subtitle">El servicio diferenciador del almacén — y el que genera el problema.</p>
+              <h2 class="slide-title">Historias de Usuario (cont.)</h2>
+              <p class="slide-subtitle">Registro de pagos y generación de reportes de morosidad.</p>
             </div>
             <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">El <strong>crédito vecinal</strong> —también conocido como "venta al fiado"— es un sistema de confianza donde un cliente habitual del barrio se lleva productos del almacén <strong>sin pagar en el momento</strong>. El dueño le anota la deuda, y el cliente la paga más adelante, generalmente a fin de mes.</p>
-              </div>
-              <div class="highlight-box" style="margin-bottom:0;">
-                <p>Es una práctica histórica en los almacenes chilenos. Funciona sobre la <strong>confianza y el conocimiento personal</strong>. En Almacén Lukas, este servicio es el principal factor de fidelización frente a otros minimarkets.</p>
-              </div>
-              <div class="info-grid" style="margin-top:16px;">
-                <div class="info-card">
-                  <div class="info-card-label">🤝 Cómo funciona</div>
-                  <div class="info-card-value small">El vecino lleva productos hoy y los paga cuando pueda.</div>
+              <div class="acta-grid">
+                <div class="acta-block">
+                  <div class="acta-block-title">UH3 - Registrar Pago de Deuda (R.3)</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Yo como</strong> Propietario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Necesito</strong> Ingresar abonos parciales o totales de los clientes</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Para</strong> Descontar pagos de la deuda y mantener el estado de cuenta al día</span></div>
+                  <div class="acta-item" style="margin-top:8px;"><div class="acta-item-dot" style="background:var(--accent-amber);"></div><span><strong>Criterio:</strong> Actualización de saldo y registro en historial del cliente.</span></div>
                 </div>
-                <div class="info-card">
-                  <div class="info-card-label">📅 Cuándo se cobra</div>
-                  <div class="info-card-value small">Generalmente a fin de mes (sueldo o pensión).</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">👥 Quiénes acceden</div>
-                  <div class="info-card-value small">Solo clientes conocidos y de confianza.</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">📝 Cómo se registra hoy</div>
-                  <div class="info-card-value small">En hojas sueltas, agendas y la memoria del dueño.</div>
+                <div class="acta-block">
+                  <div class="acta-block-title">UH4 - Listar Clientes Morosos (R.4)</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Yo como</strong> Propietario</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Necesito</strong> Generar listado de clientes con deuda mayor a $0, con saldo y último pago</span></div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Para</strong> Identificar rápidamente a quién cobrar a fin de mes sin revisar libretas</span></div>
+                  <div class="acta-item" style="margin-top:8px;"><div class="acta-item-dot" style="background:var(--accent-amber);"></div><span><strong>Criterio:</strong> Generación del listado con tiempo de respuesta bajo.</span></div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="1" data-slide="4">
+        <section class="slide" data-section="3" data-slide="4">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">04</div>
-              <h2 class="slide-title">El problema en detalle</h2>
-              <p class="slide-subtitle">Lo que ocurre cada fin de mes en el almacén.</p>
+              <h2 class="slide-title">Propuesta de Solución</h2>
+              <p class="slide-subtitle">SGC-Lukas: Sistema de Gestión de Crédito Vecinal.</p>
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">En palabras del propio dueño: <strong>"Al llegar fin de mes, debo revisar entre todas las hojas de notas y apuntes para encontrar a los clientes que no han pagado y luego ir a cobrarles por WhatsApp."</strong></p>
+                <p class="content-text">Aplicación de escritorio (<strong>desktop</strong>) instalable en el computador del almacén, operación completamente <strong>offline (On-Premise)</strong>, sin dependencia de internet. Reemplazo total del sistema manual basado en libretas.</p>
               </div>
-              <div class="problem-grid">
-                <div class="problem-card">
-                  <div class="problem-card-icon">📝</div>
-                  <div class="problem-card-title">Desorganización en el registro</div>
-                  <div class="problem-card-desc">No hay un orden claro: no se sabe de inmediato quién debe ni cuánto, provocando pérdidas.</div>
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">💻 Tipo</div>
+                  <div class="info-card-value small">Aplicación de escritorio (standalone)</div>
                 </div>
-                <div class="problem-card">
-                  <div class="problem-card-icon">📄</div>
-                  <div class="problem-card-title">Pérdida de información</div>
-                  <div class="problem-card-desc">Las hojas de papel se deterioran, extravían o dañan con facilidad.</div>
+                <div class="info-card">
+                  <div class="info-card-label">🌐 Conectividad</div>
+                  <div class="info-card-value small">100% offline — sin necesidad de internet</div>
                 </div>
-                <div class="problem-card">
-                  <div class="problem-card-icon">⏰</div>
-                  <div class="problem-card-title">Proceso lento y manual</div>
-                  <div class="problem-card-desc">Cada fin de mes el dueño invierte varias horas revisando apuntes uno a uno.</div>
+                <div class="info-card">
+                  <div class="info-card-label">📦 Nombre</div>
+                  <div class="info-card-value small">SGC-Lukas</div>
                 </div>
-                <div class="problem-card">
-                  <div class="problem-card-icon">👁️</div>
-                  <div class="problem-card-title">Sin visibilidad del estado de cuenta</div>
-                  <div class="problem-card-desc">Es imposible saber rápidamente cuánto debe un cliente específico sin revisar todos los papeles.</div>
+                <div class="info-card">
+                  <div class="info-card-label">🗄️ Datos</div>
+                  <div class="info-card-value small">Base de datos local (SQLite)</div>
                 </div>
+              </div>
+              <div class="highlight-box" style="margin-bottom:0;">
+                <p>La aplicación integrará los módulos de <strong>gestión de clientes, registro de ventas a crédito, control de pagos, generación de reportes y seguridad de acceso</strong>, todos interconectados sobre una base de datos local.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="1" data-slide="5">
+        <section class="slide" data-section="3" data-slide="5">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">05</div>
-              <h2 class="slide-title">Antes y después del sistema</h2>
-              <p class="slide-subtitle">Cómo cambia el proceso de crédito vecinal con la solución propuesta.</p>
+              <h2 class="slide-title">Procesos AS-IS vs TO-BE</h2>
+              <p class="slide-subtitle">Del registro manual en libretas a la gestión digital integrada.</p>
             </div>
             <div class="slide-content">
               <div class="comparison-row">
                 <div class="comparison-col danger-before">
-                  <div class="comparison-label">❌ Hoy — Sin sistema</div>
-                  <div class="comparison-item"><span>📝</span><span>El dueño anota la deuda a mano en una hoja o libreta</span></div>
-                  <div class="comparison-item"><span>🗂️</span><span>Las hojas se acumulan sin orden durante todo el mes</span></div>
-                  <div class="comparison-item"><span>🔍</span><span>Al fin de mes revisa todo manualmente buscando morosos</span></div>
-                  <div class="comparison-item"><span>💬</span><span>Escribe a cada moroso a mano por WhatsApp uno por uno</span></div>
-                  <div class="comparison-item"><span>😰</span><span>Riesgo de olvidar deudas, perder hojas o equivocar montos</span></div>
-                  <div class="comparison-item"><span>⏰</span><span>Horas perdidas en un proceso que debería tomar minutos</span></div>
+                  <div class="comparison-label">❌ AS-IS — Estado Actual</div>
+                  <div class="comparison-item"><span>📝</span><span>Anotaciones manuales en libretas u hojas sueltas sin estandarización</span></div>
+                  <div class="comparison-item"><span>🗂️</span><span>Acumulación desordenada de apuntes durante el mes</span></div>
+                  <div class="comparison-item"><span>🔍</span><span>Revisión manual de todos los apuntes a fin de mes (4 a 8 horas)</span></div>
+                  <div class="comparison-item"><span>💬</span><span>Cobro uno a uno por WhatsApp sin información centralizada</span></div>
+                  <div class="comparison-item"><span>😰</span><span>Riesgo de errores, olvidos y pérdida de información</span></div>
                 </div>
                 <div class="comparison-col after">
-                  <div class="comparison-label">✅ Con el sistema Local</div>
-                  <div class="comparison-item"><span>🖥️</span><span>El dueño registra el crédito en segundos en su PC</span></div>
-                  <div class="comparison-item"><span>💾</span><span>El sistema guarda todo automáticamente con fecha y monto</span></div>
-                  <div class="comparison-item"><span>⚡</span><span>Con un clic ve la lista de morosos actualizada al instante</span></div>
-                  <div class="comparison-item"><span>🤖</span><span>El sistema genera la información exacta para el cobro</span></div>
-                  <div class="comparison-item"><span>📊</span><span>Historial completo de cada cliente: deudas y pagos</span></div>
-                  <div class="comparison-item"><span>🎯</span><span>El fin de mes pasa de horas de trabajo a minutos</span></div>
+                  <div class="comparison-label">✅ TO-BE — Estado Propuesto</div>
+                  <div class="comparison-item"><span>🖥️</span><span>Registro digital del cliente en menos de 60 segundos</span></div>
+                  <div class="comparison-item"><span>⚡</span><span>Venta a crédito registrada al instante con actualización automática del saldo</span></div>
+                  <div class="comparison-item"><span>📊</span><span>Consulta de saldo de cualquier cliente con un clic</span></div>
+                  <div class="comparison-item"><span>🤖</span><span>Listado de morosos generado automáticamente al cierre de mes</span></div>
+                  <div class="comparison-item"><span>🎯</span><span>De 4-8 horas mensuales a menos de 30 minutos</span></div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="2" data-slide="6">
+        <section class="slide" data-section="3" data-slide="6">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">06</div>
-              <h2 class="slide-title">Objetivo General</h2>
-              <p class="slide-subtitle">La meta principal que define el éxito del proyecto.</p>
-            </div>
-            <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">El propósito central del equipo de desarrollo se resume en una única meta concreta, enfocada en solucionar el cuello de botella del almacén:</p>
-              </div>
-              <div class="highlight-box" style="padding: 40px; border-left-width: 5px;">
-                <p style="font-size: 20px; line-height: 1.6; color: var(--text-primary); text-align: center;">
-                  "Desarrollar e implementar un sistema informático de gestión de morosos para el almacén Lukas en un plazo de un semestre académico, con el fin de <strong>reducir el tiempo dedicado al registro y cobro de los pedidos fiados en al menos un 80%</strong>."
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide" data-section="2" data-slide="7">
-          <div class="slide-content-wrapper">
-            <div class="slide-header">
-              <div class="slide-number">07</div>
-              <h2 class="slide-title">Objetivos Específicos</h2>
-              <p class="slide-subtitle">Los pasos cuantificables y medibles para alcanzar la meta general.</p>
+              <h2 class="slide-title">Funcionalidades Principales</h2>
+              <p class="slide-subtitle">4 módulos alineados con los requisitos funcionales aprobados.</p>
             </div>
             <div class="slide-content">
               <div class="acta-grid" style="grid-template-columns: 1fr;">
-                
-                <div class="acta-block" style="padding: 20px 24px;">
-                  <div class="acta-item" style="margin-bottom: 12px; font-size: 15px;">
-                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
-                    <span><strong>1. Identificar</strong> los procesos actuales de gestión de crédito y los puntos críticos de pérdida de información mediante entrevistas de licitación con el cliente.</span>
-                  </div>
-                  <div class="acta-item" style="margin-bottom: 12px; font-size: 15px;">
-                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
-                    <span><strong>2. Modelar</strong> el flujo de procesos utilizando la notación BPMN para estandarizar el registro y cobro de deudas.</span>
-                  </div>
-                  <div class="acta-item" style="margin-bottom: 12px; font-size: 15px;">
-                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
-                    <span><strong>3. Estructurar</strong> una matriz de requisitos funcionales y no funcionales que garantice la seguridad, portabilidad y usabilidad del sistema.</span>
-                  </div>
-                  <div class="acta-item" style="margin-bottom: 12px; font-size: 15px;">
-                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
-                    <span><strong>4. Desarrollar</strong> el sistema de gestión utilizando el stack tecnológico propuesto, integrando los módulos de clientes, créditos y pagos.</span>
-                  </div>
-                  <div class="acta-item" style="font-size: 15px;">
-                    <div class="acta-item-dot" style="width:6px; height:6px; margin-top:8px;"></div>
-                    <span><strong>5. Validar</strong> el funcionamiento del sistema y la precisión de los datos mediante pruebas de usuario y capacitación <em>in situ</em> al propietario.</span>
-                  </div>
+                <div class="acta-block" style="padding:0; overflow:hidden;">
+                  <table style="width:100%; border-collapse: collapse; font-size: 13px;">
+                    <thead>
+                      <tr style="background: var(--bg-tertiary);">
+                        <th style="padding:12px 16px; text-align:left; color:var(--accent); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; border-bottom:1px solid var(--border);">Módulo</th>
+                        <th style="padding:12px 16px; text-align:left; color:var(--accent); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; border-bottom:1px solid var(--border);">Funcionalidad</th>
+                        <th style="padding:12px 16px; text-align:left; color:var(--accent); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; border-bottom:1px solid var(--border);">Descripción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="border-bottom:1px solid var(--border);">
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Clientes</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Registrar Cliente (R.1)</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Alta, modificación, consulta y baja de clientes</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid var(--border);">
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Crédito</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Gestionar Crédito Vecinal (R.2)</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Registro de ventas a crédito y actualización automática del saldo</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid var(--border);">
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Pagos</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Registrar Pago de Deuda (R.3)</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Abonos parciales/totales con actualización de saldo e historial</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Reportes</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Listar Clientes Morosos (R.4)</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Listado de clientes con deuda > $0, saldo y fecha último pago</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="3" data-slide="8">
+        <section class="slide" data-section="3" data-slide="7">
+          <div class="slide-content-wrapper">
+            <div class="slide-header">
+              <div class="slide-number">07</div>
+              <h2 class="slide-title">Aspectos Técnicos</h2>
+              <p class="slide-subtitle">Stack tecnológico seleccionado para el SGC-Lukas.</p>
+            </div>
+            <div class="slide-content">
+              <div class="acta-grid" style="grid-template-columns: 1fr;">
+                <div class="acta-block" style="padding:0; overflow:hidden;">
+                  <table style="width:100%; border-collapse: collapse; font-size: 13px;">
+                    <thead>
+                      <tr style="background: var(--bg-tertiary);">
+                        <th style="padding:12px 16px; text-align:left; color:var(--accent); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; border-bottom:1px solid var(--border);">Componente</th>
+                        <th style="padding:12px 16px; text-align:left; color:var(--accent); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; border-bottom:1px solid var(--border);">Tecnología</th>
+                        <th style="padding:12px 16px; text-align:left; color:var(--accent); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; border-bottom:1px solid var(--border);">Justificación</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="border-bottom:1px solid var(--border);">
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Lenguaje</td>
+                        <td style="padding:12px 16px; color:var(--accent);">Python 3.12</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Alta productividad, open source, dominio del equipo</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid var(--border);">
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Interfaz Gráfica</td>
+                        <td style="padding:12px 16px; color:var(--accent);">CustomTkinter</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">GUI nativa para escritorio, sin dependencias externas</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid var(--border);">
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Base de Datos</td>
+                        <td style="padding:12px 16px; color:var(--accent);">SQLite 3</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Local, embebido, sin servidor ni configuración de red</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid var(--border);">
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Arquitectura</td>
+                        <td style="padding:12px 16px; color:var(--accent);">MVC</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Separación de lógica de negocio, interfaz y control</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid var(--border);">
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">Empaquetado</td>
+                        <td style="padding:12px 16px; color:var(--accent);">PyInstaller</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Ejecutable .exe independiente, sin necesidad de Python</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:12px 16px; color:var(--text-primary); font-weight:500;">SO Target</td>
+                        <td style="padding:12px 16px; color:var(--accent);">Windows 10/11</td>
+                        <td style="padding:12px 16px; color:var(--text-secondary);">Sistema del equipo del cliente, compatibilidad confirmada</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <p class="content-text" style="font-size: 13px; margin-top: 16px;">La base de datos SQLite se almacenará localmente con exportación manual a CSV para respaldos periódicos.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-section="4" data-slide="8">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">08</div>
-              <h2 class="slide-title">Ingeniería de Requisitos</h2>
-              <p class="slide-subtitle">Metodología aplicada para el levantamiento de información.</p>
+              <h2 class="slide-title">Estudios de Factibilidad</h2>
+              <p class="slide-subtitle">Evaluación de la viabilidad del proyecto en 3 dimensiones.</p>
             </div>
             <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">El proceso de desarrollo sigue los lineamientos del <strong>Ciclo de Vida de Desarrollo de Software (CVDS)</strong> y aplica los principios definidos por Sommerville (2011).</p>
-              </div>
-              <div class="highlight-box">
-                <p><em>"Los requisitos son la base sobre la cual se construye todo sistema de software exitoso. El análisis no es un proceso aislado, sino un esfuerzo continuo de comprensión, validación y negociación con los stakeholders."</em> <br><span style="font-size: 12px; color: var(--text-muted);">— Sommerville, 2011</span></p>
-              </div>
-              <div class="content-block">
-                <p class="content-text">Para esto, el equipo llevó a cabo un proceso de <strong>elicitación de requisitos</strong> mediante entrevistas estructuradas con el Sr. Claudio Caballero, permitiendo comprender en profundidad la operación y establecer qué debe hacer el sistema (Funcionales) y cómo debe hacerlo (No Funcionales).</p>
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="info-card-label">💰 Factibilidad Económica</div>
+                  <div class="info-card-value small">Costos directos de software: <strong>$0</strong> (open source). Costo real: 160 hrs de desarrollo valoradas en <strong>$960.000 CLP</strong>. El cliente ya cuenta con el hardware necesario.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label" style="color:var(--accent-amber);">⚖️ Factibilidad Legal</div>
+                  <div class="info-card-value small">Cumplimiento de Ley N°19.628 (protección de datos). Almacenamiento local (no nube) y acceso restringido por autenticación. Licencias open source sin restricciones.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label" style="color:var(--accent-red);">🛠️ Factibilidad Operacional</div>
+                  <div class="info-card-value small">Usuario con experiencia básica-intermedia en PC. Interfaz simple: cada tarea en ≤ 3 pasos. Capacitación estimada de 1 a 2 horas. Transición gradual desde el sistema manual.</div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="3" data-slide="9">
+        <section class="slide" data-section="4" data-slide="9">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">09</div>
-              <h2 class="slide-title">Requisitos Funcionales</h2>
-              <p class="slide-subtitle">Funciones específicas que el sistema debe ser capaz de ejecutar, ordenados lógicamente.</p>
+              <h2 class="slide-title">Análisis Costo / Beneficio</h2>
+              <p class="slide-subtitle">Inversión, retorno y punto de equilibrio del proyecto.</p>
             </div>
             <div class="slide-content">
-              <div class="acta-grid">
-                
-                <div class="acta-block">
-                  <div class="acta-block-title" style="color:var(--text-primary);">R.1 - Registrar Cliente</div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Actor:</strong> Propietario</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Permite registrar clientes con nombre, RUT, teléfono y dirección.</span></div>
+              <div class="comparison-row" style="margin-top:0;">
+                <div class="comparison-col danger-before" style="padding:16px;">
+                  <div class="comparison-label">💵 Costos</div>
+                  <div class="comparison-item"><span>•</span><span>Desarrollo (160 hrs): $960.000</span></div>
+                  <div class="comparison-item"><span>•</span><span>Imprevistos (10%): $96.000</span></div>
+                  <div class="comparison-item"><span>•</span><span>Licencias: $0</span></div>
+                  <div class="comparison-item" style="margin-top:8px;color:var(--text-primary);font-weight:600;"><span>•</span><span>Inversión Total: $1.056.000</span></div>
                 </div>
-
-                <div class="acta-block">
-                  <div class="acta-block-title" style="color:var(--text-primary);">R.2 - Gestionar Crédito Vecinal</div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Actor:</strong> Propietario</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Registro de ventas a crédito con productos y fecha; actualización automática del saldo.</span></div>
+                <div class="comparison-col after" style="padding:16px;">
+                  <div class="comparison-label">📈 Beneficios Anuales</div>
+                  <div class="comparison-item"><span>•</span><span>Ahorro tiempo gestión: $252.000</span></div>
+                  <div class="comparison-item"><span>•</span><span>Reducción pérdidas: $180.000</span></div>
+                  <div class="comparison-item"><span>•</span><span>Ahorro materiales: $30.000</span></div>
+                  <div class="comparison-item" style="margin-top:8px;color:var(--text-primary);font-weight:600;"><span>•</span><span>Total: $462.000 / año</span></div>
                 </div>
-
-                <div class="acta-block">
-                  <div class="acta-block-title" style="color:var(--text-primary);">R.3 - Registrar Pago de Deuda</div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Actor:</strong> Propietario</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Permite ingresar abonos parciales o totales, actualizando el saldo y el historial.</span></div>
-                </div>
-
-                <div class="acta-block">
-                  <div class="acta-block-title" style="color:var(--text-primary);">R.4 - Listar Clientes Morosos</div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span><strong>Actor:</strong> Propietario</span></div>
-                  <div class="acta-item"><div class="acta-item-dot"></div><span>Genera listado actualizado de clientes con deuda mayor a $0, indicando saldo.</span></div>
-                </div>
-
               </div>
-              <p class="content-text" style="font-size: 13px; margin-top: 16px; text-align: center;"><em>* Todos los requisitos se encuentran en estado APROBADO.</em></p>
+              <div class="acta-block" style="margin-top:16px; padding:16px 20px;">
+                <div class="acta-block-title">📊 Proyección ROI a 3 años</div>
+                <div style="display:flex; justify-content:space-between; gap:16px; margin-top:8px;">
+                  <div style="flex:1; text-align:center; padding:10px; background:var(--bg-tertiary); border-radius:8px;">
+                    <div style="font-size:10px; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase;">Año 0</div>
+                    <div style="font-size:16px; font-weight:600; color:var(--accent-red);">-100%</div>
+                  </div>
+                  <div style="flex:1; text-align:center; padding:10px; background:var(--bg-tertiary); border-radius:8px;">
+                    <div style="font-size:10px; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase;">Año 1</div>
+                    <div style="font-size:16px; font-weight:600; color:var(--accent-amber);">-60.8%</div>
+                  </div>
+                  <div style="flex:1; text-align:center; padding:10px; background:var(--bg-tertiary); border-radius:8px;">
+                    <div style="font-size:10px; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase;">Año 2</div>
+                    <div style="font-size:16px; font-weight:600; color:var(--accent-amber);">-21.6%</div>
+                  </div>
+                  <div style="flex:1; text-align:center; padding:10px; background:var(--bg-tertiary); border-radius:8px; border:1px solid rgba(0,255,136,0.3);">
+                    <div style="font-size:10px; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase;">Año 3</div>
+                    <div style="font-size:16px; font-weight:600; color:var(--accent);">+17.6%</div>
+                  </div>
+                </div>
+                <p style="font-size:12px; color:var(--text-secondary); margin-top:10px; text-align:center;">Punto de equilibrio: ~2 años 4 meses. ROI positivo a partir del año 3.</p>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="3" data-slide="10">
+        <section class="slide" data-section="5" data-slide="10">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">10</div>
-              <h2 class="slide-title">Requisitos No Funcionales</h2>
-              <p class="slide-subtitle">Atributos de calidad y restricciones tecnológicas para el contexto del Almacén.</p>
+              <h2 class="slide-title">Diagrama de Jerarquía Modular</h2>
+              <p class="slide-subtitle">Estructura funcional del sistema SGC-Lukas.</p>
             </div>
             <div class="slide-content">
-              <div class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                
-                <div class="info-card">
-                  <div class="info-card-label">🔒 RNF.1 - Seguridad</div>
-                  <div class="info-card-value small"><strong>Autenticación:</strong> Acceso mediante usuario/contraseña encriptada. Bloqueo tras 3 intentos.</div>
+              <div class="acta-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="acta-block" style="border-left:3px solid var(--accent-red);">
+                  <div class="acta-block-title" style="color:var(--accent-red);">1. Seguridad</div>
+                  <div class="acta-item"><div class="acta-item-dot" style="background:var(--accent-red);"></div><span>Login · Gestión de sesión · Cambio de contraseña</span></div>
                 </div>
-
-                <div class="info-card">
-                  <div class="info-card-label">⚡ RNF.2 - Rendimiento</div>
-                  <div class="info-card-value small"><strong>Tiempo de respuesta:</strong> Consultas &lt; 2 s; carga inicial &lt; 5 s; listado de morosos &lt; 3 s.</div>
+                <div class="acta-block" style="border-left:3px solid var(--accent);">
+                  <div class="acta-block-title">2. Clientes</div>
+                  <div class="acta-item"><div class="acta-item-dot"></div><span>Registrar · Buscar/consultar · Editar · Eliminar</span></div>
                 </div>
-
-                <div class="info-card">
-                  <div class="info-card-label">🖥️ RNF.3 - Usabilidad</div>
-                  <div class="info-card-value small"><strong>Interfaz de Escritorio:</strong> Sistema optimizado para uso en el computador del local (PC) con teclado y mouse, garantizando agilidad.</div>
+                <div class="acta-block" style="border-left:3px solid #00c8ff;">
+                  <div class="acta-block-title" style="color:#00c8ff;">3. Crédito</div>
+                  <div class="acta-item"><div class="acta-item-dot" style="background:#00c8ff;"></div><span>Registrar venta fiada · Actualizar saldo · Historial</span></div>
                 </div>
-
-                <div class="info-card">
-                  <div class="info-card-label">💾 RNF.4 - Confiabilidad</div>
-                  <div class="info-card-value small"><strong>Respaldo de datos:</strong> Exportación manual de backup (CSV/JSON) con fecha y hora visible para seguridad ante fallos del hardware.</div>
+                <div class="acta-block" style="border-left:3px solid var(--accent-amber);">
+                  <div class="acta-block-title" style="color:var(--accent-amber);">4. Pagos</div>
+                  <div class="acta-item"><div class="acta-item-dot" style="background:var(--accent-amber);"></div><span>Registrar pago · Abono parcial · Historial de pagos</span></div>
                 </div>
-
-                <div class="info-card" style="grid-column: 1 / -1; text-align: center;">
-                  <div class="info-card-label">📂 RNF.5 - Ejecución Local</div>
-                  <div class="info-card-value small"><strong>Arquitectura Local:</strong> Sistema standalone que se ejecuta íntegramente en el PC del cliente. Costo cero de hosting y operación sin dependencia de conexión a internet.</div>
-                </div>
-
+              </div>
+              <div class="acta-block" style="margin-top:8px; border-left:3px solid #c06aff;">
+                <div class="acta-block-title" style="color:#c06aff;">5. Reportes</div>
+                <div class="acta-item"><div class="acta-item-dot" style="background:#c06aff;"></div><span>Listado morosos · Estado de cuenta · Exportar CSV</span></div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="4" data-slide="11">
+        <section class="slide" data-section="5" data-slide="11">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">11</div>
-              <h2 class="slide-title">Análisis: El Modelo Esencial</h2>
-              <p class="slide-subtitle">La lógica pura del negocio sin limitaciones tecnológicas actuales.</p>
+              <h2 class="slide-title">Diagramas de Casos de Uso</h2>
+              <p class="slide-subtitle">Actor principal y relaciones del sistema.</p>
             </div>
             <div class="slide-content">
               <div class="content-block">
-                <p class="content-text">El modelo esencial busca capturar las políticas de negocio ignorando cómo se hacen físicamente hoy. Para el Almacén Lukas, <strong>la esencia radica en gestionar el crédito vecinal de manera precisa</strong>.</p>
+                <p class="content-text"><strong>Actor:</strong> Propietario — administra de forma centralizada todas las operaciones del sistema.</p>
               </div>
-              <div class="highlight-box">
-                <p>El comportamiento fundamental requerido por el sistema es:</p>
-                <p style="margin-top: 10px;">
-                  1. <strong>Registrar la deuda en el instante exacto</strong> en que el cliente solicita los productos.<br>
-                  2. <strong>Mantener un cálculo matemático exacto</strong> del saldo adeudado.<br>
-                  3. <strong>Eliminar la dependencia</strong> de la memoria humana y de los registros físicos (libretas).
+              <div class="highlight-box" style="padding: 20px; margin-bottom:8px;">
+                <p style="font-size:14px; line-height:1.8;">
+                  <strong>Casos de uso principales:</strong><br>
+                  • <strong>Registrar Cliente</strong> → incluye: Validar RUT, Crear Perfil, Actualizar Datos, Login<br>
+                  • <strong>Gestionar Crédito Vecinal</strong> → incluye: Login, Registrar Detalle Venta, Calcular Nuevo Saldo<br>
+                  • <strong>Registrar Pago de Deuda</strong> → ingreso de abonos para descontar del saldo pendiente<br>
+                  • <strong>Listar Clientes Morosos</strong> → filtra clientes con deuda pendiente para cobranza<br>
+                  • <strong>Exportar Respaldo de Datos</strong> → deriva en: Seleccionar Formato y Generar Archivo
                 </p>
               </div>
+              <p class="content-text" style="font-size:13px;">Todos los casos de uso requieren autenticación previa (<em>Login</em>) como relación <code>&lt;&lt;include&gt;&gt;</code> transversal.</p>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="4" data-slide="12">
+        <section class="slide" data-section="5" data-slide="12">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">12</div>
-              <h2 class="slide-title">Análisis de Flujo y Fronteras</h2>
-              <p class="slide-subtitle">¿Qué automatizará el sistema y qué seguirá haciendo el dueño?</p>
+              <h2 class="slide-title">Diagramas de Clases</h2>
+              <p class="slide-subtitle">Modelo de datos estático y relaciones del sistema.</p>
             </div>
             <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">El análisis BPMN evidenció que el cuello de botella (AS-IS) ocurre a fin de mes por la revisión manual de papeles. El sistema se centrará en eliminar este bloqueo definiendo fronteras claras.</p>
+              <div class="acta-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="acta-block">
+                  <div class="acta-block-title" style="font-size:10px;">🖥️ SistemaGestor</div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot"></div><span>+listarClientesMorosos()</span></div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot"></div><span>+exportarRespaldoDatos()</span></div>
+                  <div class="acta-item" style="margin-top:6px;font-size:11px;color:var(--text-muted);"><span>Administra 1 a * Clientes</span></div>
+                </div>
+                <div class="acta-block">
+                  <div class="acta-block-title" style="font-size:10px;color:var(--accent-red);">🔐 Propietario</div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:var(--accent-red);"></div><span>-usuario: String</span></div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:var(--accent-red);"></div><span>-contrasenaEncriptada: String</span></div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:var(--accent-red);"></div><span>+autenticarAcceso()</span></div>
+                </div>
+                <div class="acta-block">
+                  <div class="acta-block-title" style="font-size:10px;color:var(--accent-amber);">👤 Cliente</div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:var(--accent-amber);"></div><span>-nombre, -rut, -telefono</span></div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:var(--accent-amber);"></div><span>-direccion, -saldoDeuda: Float</span></div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:var(--accent-amber);"></div><span>+crear() +leer() +actualizar() +eliminar()</span></div>
+                </div>
+                <div class="acta-block">
+                  <div class="acta-block-title" style="font-size:10px;color:#00c8ff;">💳 CreditoVecinal</div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:#00c8ff;"></div><span>-fecha: Date, -monto: Float</span></div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:#00c8ff;"></div><span>-descripcionProductos: String</span></div>
+                  <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot" style="background:#00c8ff;"></div><span>+registrarCredito() +actualizarSaldo()</span></div>
+                </div>
               </div>
-              <div class="comparison-row">
-                <div class="comparison-col after">
-                  <div class="comparison-label">🤖 Dentro del Sistema (Automatizado)</div>
-                  <div class="comparison-item"><span>•</span><span>Registro centralizado y seguro de clientes (R.1)</span></div>
-                  <div class="comparison-item"><span>•</span><span>Cálculo automático de saldos y créditos (R.2 y R.3)</span></div>
-                  <div class="comparison-item"><span>•</span><span>Generación instantánea de lista de morosos (R.4)</span></div>
-                </div>
-                <div class="comparison-col before">
-                  <div class="comparison-label">👤 Fuera del Sistema (Labor Manual)</div>
-                  <div class="comparison-item"><span>•</span><span><strong>El Cobro vía WhatsApp:</strong> El sistema provee la información precisa, pero la acción de contactar al cliente desde su dispositivo la mantendrá el propietario.</span></div>
-                </div>
+              <div class="acta-block" style="margin-top:8px; border-left:3px solid var(--accent);">
+                <div class="acta-block-title" style="font-size:10px;">💵 Pago</div>
+                <div class="acta-item" style="font-size:12px;"><div class="acta-item-dot"></div><span>-fecha: Date · -montoAbono: Float · +ingresarAbono() · +actualizarHistorial()</span></div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="4" data-slide="13">
+        <section class="slide" data-section="6" data-slide="13">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">13</div>
-              <h2 class="slide-title">Modelo de Implantación</h2>
-              <p class="slide-subtitle">Adaptando la lógica a la realidad física del mostrador del almacén.</p>
+              <h2 class="slide-title">Prototipo — Pantallas</h2>
+              <p class="slide-subtitle">Diseño de interfaz validado con el cliente.</p>
             </div>
             <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">Una vez definida la lógica (Modelo Esencial), esta debe aterrizar en la realidad tecnológica y ambiental del punto de venta, lo que dictó los Requisitos No Funcionales para un entorno de escritorio.</p>
+              <div class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="info-card">
+                  <div class="info-card-label">🔑 Inicio de Sesión</div>
+                  <div class="info-card-value small">Login con usuario/contraseña. Bloqueo tras 3 intentos fallidos. Logo del almacén.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">📊 Dashboard</div>
+                  <div class="info-card-value small">Bienvenida con total de clientes activos, deuda pendiente y accesos rápidos a módulos.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">👥 Módulo Clientes</div>
+                  <div class="info-card-value small">Listado completo con búsqueda, CRUD e indicador visual de saldo (colores semafóricos).</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">💳 Crédito / Pago</div>
+                  <div class="info-card-value small">Formulario unificado con pestañas: "Nuevo Crédito" y "Nuevo Abono". Cliente autocompletado.</div>
+                </div>
+                <div class="info-card">
+                  <div class="info-card-label">📋 Listado Morosos</div>
+                  <div class="info-card-value small">Reporte automático ordenado por deuda descendente. Exportación a CSV con un clic.</div>
+                </div>
               </div>
-              <div class="info-grid">
-                <div class="info-card">
-                  <div class="info-card-label">🖥️ Dispositivo Físico</div>
-                  <div class="info-card-value small">El dueño operará desde el computador (PC) ubicado en el mostrador. <strong>Requiere una interfaz de escritorio clara y atajos de teclado para un registro rápido.</strong></div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">⏱️ Entorno Dinámico</div>
-                  <div class="info-card-value small">Hay fila de clientes. <strong>Consultas menores a 2 segundos</strong> para no entorpecer la atención presencial de la tienda.</div>
-                </div>
-                <div class="info-card">
-                  <div class="info-card-label">🔌 Mitigación de Riesgos</div>
-                  <div class="info-card-value small">Para asegurar la operación continua incluso sin internet, <strong>la ejecución será 100% local, con exportaciones manuales de base de datos.</strong></div>
-                </div>
+              <div class="highlight-box" style="margin-bottom:0;">
+                <p><strong>Principios de diseño:</strong> Simplicidad (cada tarea en ≤ 3 pasos), colores semafóricos para estado de deuda, interfaz optimizada para 1366×768.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="5" data-slide="14">
+        <section class="slide" data-section="7" data-slide="14">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">14</div>
               <h2 class="slide-title">Conclusiones</h2>
-              <p class="slide-subtitle">Cierre de la fase de Análisis y Levantamiento de Requisitos.</p>
+              <p class="slide-subtitle">Resultados y aprendizajes de la etapa de diseño y planificación.</p>
             </div>
             <div class="slide-content">
-              <div class="content-block">
-                <p class="content-text">La primera etapa formal del ciclo de vida de desarrollo ha culminado exitosamente. A través de la elicitación, se tradujo la problemática del registro manual en una arquitectura lógica eficiente.</p>
-              </div>
-              <div class="highlight-box">
-                <p><strong>Resultados clave:</strong></p>
-                <p style="margin-top: 10px;">
-                  • <strong>9 Requisitos validados:</strong> 4 funcionales núcleo (clientes, crédito, pagos, listados) y 5 no funcionales orientados a una ejecución de escritorio segura y rápida.<br>
-                  • <strong>Trazabilidad:</strong> Cada requisito funcional responde directamente a mitigar un punto crítico del flujo BPMN.<br>
-                  • <strong>Viabilidad Económica:</strong> La decisión de una arquitectura local garantiza cero costos operativos (hosting) y evita dependencias de conexión a internet para el dueño del local.
+              <div class="highlight-box" style="padding: 20px;">
+                <p style="font-size:14px; line-height:1.8;">
+                  <strong>1.</strong> Se tradujeron los requisitos en una arquitectura concreta: Python + CustomTkinter + SQLite, con patrón MVC.<br><br>
+                  <strong>2.</strong> El estudio de factibilidad confirmó viabilidad técnica, económica (sin inversión en licencias), legal (Ley N°19.628) y operacional (usuario motivado, capacitación mínima).<br><br>
+                  <strong>3.</strong> Análisis costo-beneficio: inversión de $1.056.000 CLP, beneficios anuales de $462.000 CLP, recuperación en ~2 años 4 meses, ROI positivo (+17.6%) al año 3.<br><br>
+                  <strong>4.</strong> Los diagramas UML y de jerarquía modular estructuraron la arquitectura funcional para guiar el desarrollo.<br><br>
+                  <strong>5.</strong> El prototipo fue validado con el Sr. Caballero, quien expresó conformidad con el diseño propuesto.
                 </p>
               </div>
-              <div class="content-block">
-                <p class="content-text">El proyecto cuenta con una base sólida para avanzar hacia las fases de diseño de bases de datos, interfaces y desarrollo en las evaluaciones subsiguientes.</p>
-              </div>
+              <p class="content-text" style="font-size:13px;">El proyecto avanza sobre una base sólida para el desarrollo incremental de los módulos definidos.</p>
             </div>
           </div>
         </section>
 
-        <section class="slide" data-section="5" data-slide="15">
+        <section class="slide" data-section="7" data-slide="15">
           <div class="slide-content-wrapper">
             <div class="slide-header">
               <div class="slide-number">15</div>
-              <h2 class="slide-title">Referencias Bibliográficas</h2>
-              <p class="slide-subtitle">Marco teórico y metodológico utilizado (Normas APA 7ª edición).</p>
+              <h2 class="slide-title">Referencias</h2>
+              <p class="slide-subtitle">Marco teórico y normativo (Normas APA 7ª edición).</p>
             </div>
             <div class="slide-content">
-              <div class="acta-block" style="margin-top: 20px;">
-                <div class="acta-item"><div class="acta-item-dot"></div><span>Sommerville, I. (2011). <em>Ingeniería del software</em> (9.ª ed.). Pearson Educación.</span></div>
-                <div class="acta-item" style="margin-top: 14px;"><div class="acta-item-dot"></div><span>Pressman, R. S. (2010). <em>Ingeniería del software: Un enfoque práctico</em> (7.ª ed.). McGraw-Hill.</span></div>
-                <div class="acta-item" style="margin-top: 14px;"><div class="acta-item-dot"></div><span>Brooks, F. P. (1987). No silver bullet: Essence and accidents of software engineering. <em>IEEE Computer</em>, 20(4), 10–19.</span></div>
-                <div class="acta-item" style="margin-top: 14px;"><div class="acta-item-dot"></div><span>IEEE/ANSI 830-1998. (1998). <em>IEEE Recommended Practice for Software Requirements Specifications</em>.</span></div>
-                <div class="acta-item" style="margin-top: 14px;"><div class="acta-item-dot"></div><span>Caballero, C. (2026, abril). <em>[Entrevistas de levantamiento de requisitos]</em>. Almacén Lukas, Lo Prado, Santiago.</span></div>
+              <div class="acta-block" style="margin-top:16px;">
+                <div class="acta-item"><div class="acta-item-dot"></div><span>Sommerville, I. (2011). <em>Ingeniería del software</em> (9.ª ed.). Pearson.</span></div>
+                <div class="acta-item" style="margin-top:12px;"><div class="acta-item-dot"></div><span>Pressman, R. S. (2010). <em>Ingeniería del software: Un enfoque práctico</em> (7.ª ed.). McGraw-Hill.</span></div>
+                <div class="acta-item" style="margin-top:12px;"><div class="acta-item-dot"></div><span>Brooks, F. P. (1987). No silver bullet. <em>IEEE Computer</em>, 20(4).</span></div>
+                <div class="acta-item" style="margin-top:12px;"><div class="acta-item-dot"></div><span>IEEE/ANSI 830-1998. (1998). <em>Recommended Practice for SRS</em>.</span></div>
+                <div class="acta-item" style="margin-top:12px;"><div class="acta-item-dot"></div><span>Ley N°19.628. (1999). Sobre protección de la vida privada. <em>Diario Oficial de Chile</em>.</span></div>
+                <div class="acta-item" style="margin-top:12px;"><div class="acta-item-dot"></div><span>Ley N°21.719. (2024). Modifica Ley N°19.628 sobre datos personales.</span></div>
+                <div class="acta-item" style="margin-top:12px;"><div class="acta-item-dot"></div><span>INE. (2025). <em>Encuesta Suplementaria de Ingresos</em>. Gobierno de Chile.</span></div>
+                <div class="acta-item" style="margin-top:12px;"><div class="acta-item-dot"></div><span>Caballero, C. (2026). Entrevistas de levantamiento de requisitos.</span></div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="slide slide--final" data-section="5" data-slide="16">
+        <section class="slide slide--final" data-section="7" data-slide="16">
           <div class="slide-content-wrapper">
-            <h2 class="final-message">¡Fin de la Presentación!</h2>
-            <p class="final-sub">En Almacén Lukas buscamos modernizar la gestión con base en una ingeniería de requisitos sólida, asegurando que la tecnología se adapte al negocio local y no al revés.</p>
+            <h2 class="final-message">¡Gracias!</h2>
+            <p class="final-sub">SGC-Lukas: una solución técnicamente robusta, económicamente justificada y operacionalmente viable para el Almacén Lukas.</p>
             <div class="highlight-box" style="margin-top:24px;text-align:left;max-width:520px; display: inline-block;">
-              <p><strong>Siguientes Pasos (Fase 2):</strong></p>
+              <p><strong>Próximos pasos:</strong></p>
               <p style="margin-top:8px;">
-                • Diseño de Base de Datos Local<br>
-                • Prototipado de Interfaces de Escritorio (UI/UX)<br>
-                • Inicio del Desarrollo de la Aplicación Local
+                • Desarrollo incremental de los módulos definidos<br>
+                • Validación continua con el cliente<br>
+                • Implementación final y capacitación del Sr. Caballero
               </p>
             </div>
             <p class="final-sub" style="margin-top:24px;">Estamos abiertos a preguntas y comentarios.</p>
@@ -1220,28 +1283,28 @@
   </div><script>
     const slideData = [
       { sectionId: 0, title: 'Proyecto',   slides: [{ id: 0,  title: 'Portada' }] },
-      { sectionId: 1, title: 'Contexto',   slides: [
-        { id: 1,  title: 'Antecedentes' },
-        { id: 2,  title: 'Procesos' },
-        { id: 3,  title: '¿Qué es el Crédito?' },
-        { id: 4,  title: 'El Problema' },
-        { id: 5,  title: 'Antes y Después' }
+      { sectionId: 1, title: 'Introducción', slides: [{ id: 1, title: 'Introducción' }] },
+      { sectionId: 2, title: 'H. Usuario', slides: [
+        { id: 2, title: 'UH1 - UH2' },
+        { id: 3, title: 'UH3 - UH4' }
       ]},
-      { sectionId: 2, title: 'Objetivos',  slides: [
-        { id: 6,  title: 'Objetivo General' },
-        { id: 7,  title: 'Obj. Específicos' }
+      { sectionId: 3, title: 'Propuesta', slides: [
+        { id: 4,  title: 'Descripción General' },
+        { id: 5,  title: 'AS-IS / TO-BE' },
+        { id: 6,  title: 'Funcionalidades' },
+        { id: 7,  title: 'Aspectos Técnicos' }
       ]},
-      { sectionId: 3, title: 'Requisitos', slides: [
-        { id: 8,  title: 'Metodología' },
-        { id: 9,  title: 'R. Funcionales' },
-        { id: 10, title: 'R. No Funcionales' }
+      { sectionId: 4, title: 'Factibilidad y Costos', slides: [
+        { id: 8,  title: 'Estudios de Factibilidad' },
+        { id: 9,  title: 'Costo / Beneficio' }
       ]},
-      { sectionId: 4, title: 'Análisis',   slides: [
-        { id: 11, title: 'Modelo Esencial' },
-        { id: 12, title: 'Frontera y Flujo' },
-        { id: 13, title: 'Implantación' }
+      { sectionId: 5, title: 'Diseño', slides: [
+        { id: 10, title: 'Jerarquía Modular' },
+        { id: 11, title: 'Casos de Uso' },
+        { id: 12, title: 'Diagrama de Clases' }
       ]},
-      { sectionId: 5, title: 'Cierre',     slides: [
+      { sectionId: 6, title: 'Prototipo', slides: [{ id: 13, title: 'Pantallas' }] },
+      { sectionId: 7, title: 'Cierre', slides: [
         { id: 14, title: 'Conclusiones' },
         { id: 15, title: 'Referencias' },
         { id: 16, title: 'Despedida' }
